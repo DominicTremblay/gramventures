@@ -5,7 +5,6 @@ var config = {
     'webpack-dev-server/client?http://0.0.0.0:8080', // WebpackDevServer host and port
     'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
     'script!jquery/dist/jquery.min.js',
-    'script!bootstrap/dist/js/bootstrap.min.js',
     path.resolve(__dirname, 'src', 'index.js'),
   ],
   externals: {
