@@ -10,6 +10,12 @@ var config = {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js'
   },
+  resolve: {
+    root: __dirname,
+    alias: {
+    },
+    extensions: ['', '.js', '.jsx']
+  },
   devtool: 'source-map',
   module: {
     loaders: [
