@@ -25,9 +25,9 @@ var config = {
     alias: {
       applicationStyles: 'src/styles/app.css',
       bootstrap: 'bootstrap/dist/css/bootstrap.css',
-      main: './components/Main.jsx',
-      gramventures: './components/Gramventures.jsx',
-      signin: './components/SignIn.jsx'
+      gramventures: './components/layout/Gramventures.js',
+      signin: './components/layout/SignIn.js',
+      layout: './pages/layout.js'
     },
     extensions: ['', '.js', '.jsx']
   },

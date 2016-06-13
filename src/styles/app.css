@@ -1,3 +1,4 @@
 .test-class {
-  font-size: 36px;
+  font: 36px;
+  text-transform: uppercase;
 }
