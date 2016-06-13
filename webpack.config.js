@@ -24,7 +24,10 @@ var config = {
     root: __dirname,
     alias: {
       applicationStyles: 'src/styles/app.css',
-      bootstrap: 'bootstrap/dist/css/bootstrap.css'
+      bootstrap: 'bootstrap/dist/css/bootstrap.css',
+      main: './components/Main.jsx',
+      gramventures: './components/Gramventures.jsx',
+      signin: './components/SignIn.jsx'
     },
     extensions: ['', '.js', '.jsx']
   },
