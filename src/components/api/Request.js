@@ -1,35 +1,24 @@
-import React, {Component} from 'react';
-
 var axios = require('axios');
 
-class Request extends Component {
+module.exports = {
 
-  constructor() {
-    super();
-    this.state = {objects: []};
-  }
+  getToken(url){ 
+    console.log("Contacting server: ", url)    
+    return axios
+      .get(url)
+      .then(function(response) {    
+        console.log('here');
+        if (response.data.cod && res.data.message) {
+          throw new Error(response.data.message);
+        }
+        else {
+          console.log("Request returns: ", response);
+          return response.data;
+        }
 
-  componentDidMount() {
-   var _this = this;
-   console.log('componentDidMount');
-    this.serverRequest = 
-      axios
-        .get("http://localhost:3000/gramventures")
-        .then(function(result) {    
-          //console.log("DATA:", result.data)
-          _this.setState({
-            objects: result.data
-
-          });
-        })
-        .catch (function (response) {
-          console.log(response);
-        }) 
-  }
-
-  render() {
-    return (
-      this.state.objects
-      )
+      }, function (response) {
+        throw new Error(response.data.message);
+      });
+      
   }
 }

@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
+import {Navigation} from 'react-router';
+import Auth from './Auth.js'
 
 class Connect extends Component {
 
     componentDidMount() {
-      const {token} = this.props.location.query;
-      if (token) {
-        console.log('saving token: ', {token} );
-        localStorage.setItem('token', JSON.stringify(token));
-      }
+
+      Auth.saveToken(this.props.location.query.token);
 
     }
 
@@ -17,7 +16,7 @@ class Connect extends Component {
 
     return (
       <div>
-      <h1>Connection</h1>      
+      <h1>Connecting...</h1>      
         
       </div>
     )

@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 var axios = require('axios');
+import Auth from '../api/Auth.js'
+import Request from '../api/Request.js'
 
 class SignIn extends Component {
 
@@ -9,33 +11,18 @@ class SignIn extends Component {
     this.state = {objects: []};
   }
 
-  retrieveToken(){
-    return token = JSON.parse(localStorage.getItem('token') || '{}')
-  }
-
-  buildURL(){
-    return "http://localhost:3000/login?" + retrieveToken();
-  }
-
   componentDidMount() {
    var _this = this;
-   let token = JSON.parse(localStorage.getItem('token') || '{}');
-   console.log('token:', token);
+   let token = Auth.retrieveToken();
    let url = "http://localhost:3000/login?" + "token="+ token;
-   console.log('url:',url);
-   console.log('Contacting server with access token');
-    this.serverRequest = url
-      axios
-        .get(url)
-        .then(function(result) {    
-          _this.setState({
-            objects: result.data
-
-          });
-        })
-        .catch (function (response) {
-          console.log(response);
-        }) 
+   console.log(url);
+   Request.getToken(url)
+      .then(function(user){
+        console.log(user);
+        _this.setState(user);
+      }, function(errorMessage){
+        alert("errorMessage");
+      });
   }
 
   render() {

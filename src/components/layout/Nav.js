@@ -6,6 +6,7 @@ class Nav extends Component {
     return (
       <div>
         <h2>Nav Component</h2>
+        <a href="http://localhost:3000/oauth/connect">[Log in]</a>
         <IndexLink to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Homepage</IndexLink>
         <Link to="/gramventures" activeClassName="active"  activeStyle={{fontWeight: 'bold'}}>Gramventures</Link>
         <Link to="/signin" activeClassName="active"  activeStyle={{fontWeight: 'bold'}}>Signin</Link>
