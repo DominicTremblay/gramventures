@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {Link, IndexLink} from 'react-router';
 
-class Nav extends React.Component {
+class Nav extends Component {
   render() {
     return (
       <div>
@@ -9,6 +9,9 @@ class Nav extends React.Component {
         <IndexLink to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Homepage</IndexLink>
         <Link to="/gramventures" activeClassName="active"  activeStyle={{fontWeight: 'bold'}}>Gramventures</Link>
         <Link to="/signin" activeClassName="active"  activeStyle={{fontWeight: 'bold'}}>Signin</Link>
+        <Link to="/connect" activeClassName="active"  activeStyle={{fontWeight: 'bold'}}>Connect</Link>
+        <Link activeClassName='active' to={ {pathname: '/connect', query: { token: 'abc123' } 
+         }}>Access Token</Link>
         
       </div>
     );

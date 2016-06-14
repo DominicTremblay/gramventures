@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-//import {axios} from 'axios';
+
 var axios = require('axios');
 
-class Gramventures extends Component {
+class Request extends Component {
 
   constructor() {
     super();
-    this.state = {gramventures: []};
+    this.state = {objects: []};
   }
 
   componentDidMount() {
@@ -18,7 +18,7 @@ class Gramventures extends Component {
         .then(function(result) {    
           //console.log("DATA:", result.data)
           _this.setState({
-            gramventures: result.data
+            objects: result.data
 
           });
         })
@@ -29,13 +29,7 @@ class Gramventures extends Component {
 
   render() {
     return (
-        <div>
-          <h3>Gramventures</h3>
-          {console.log (this.state.gramventures)}
-        </div>
-    )
+      this.state.objects
+      )
   }
-  
 }
-
-export default Gramventures;

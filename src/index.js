@@ -5,16 +5,19 @@ import Layout from 'layout';
 import Gramventures from 'gramventures';
 import SignIn from 'signin';
 import Home from './components/layout/Home.js';
+import Connect from './components/api/Connect.js';
 
 import 'applicationStyles';
 import 'bootstrap';
 
 ReactDOM.render(
   <Router history={hashHistory}>
+
     <Route path="/" component={Layout}>
       <IndexRoute component={Home} />
       <Route path="/gramventures" component={Gramventures} />
       <Route path="/signin" component={SignIn} />
+      <Route path='/connect' component={Connect} />
 
     </Route>
   </Router>,
