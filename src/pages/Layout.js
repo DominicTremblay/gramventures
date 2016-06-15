@@ -14,6 +14,7 @@ export default class Layout extends Component {
     return (
 
       <div>
+        <Nav />
         <Header />
         
         {this.props.children}

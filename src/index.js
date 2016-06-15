@@ -7,6 +7,7 @@ import SignIn from 'signin';
 import Home from './components/layout/Home.js';
 import Signup from './components/layout/Signup.js';
 import Connect from './components/api/Connect.js';
+import Submissions from'./components/layout/Submissions.js';
 
 
 import 'applicationStyles';
@@ -17,11 +18,12 @@ ReactDOM.render(
 
     <Route path="/" component={Layout}>
       <IndexRoute component={Home} />
-      <Route path="/gramventures" component={Gramventures} />
+      <Route path="gramventures" component={Gramventures} />
       <Route path="/signin" component={SignIn} />
-      <Route path='/signup' component={Signup} />
+      <Route path="/signup" component={Signup} />
       <Route path='/connect' component={Connect} />
-
+      <Route path='/submissions' component={Submissions} />
+      
     </Route>
   </Router>,
   document.getElementById('app')
