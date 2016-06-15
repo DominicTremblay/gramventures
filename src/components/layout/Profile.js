@@ -1,9 +1,28 @@
 import React, {Component} from 'react';
+
 import Breadcrumb from './Gramventures/Breadcrumb.js'
+import Request from '../api/Request.js';
 //import {axios} from 'axios';
 var axios = require('axios');
 
 class Profile extends Component {
+
+  componentDidMount() {
+   let _this = this;
+   // let id = 1;
+   let url = "http://localhost:3000/profile?cu=1";
+   console.log(url);
+   Request.getToken(url)
+      .then(function(profile){
+        console.log("it worked!");
+        console.log(profile);
+        _this.setState(profile);
+      }, function(errorMessage){
+        alert("errorMessage");
+      });
+  }
+
+
 
 
 
@@ -185,5 +204,6 @@ class Profile extends Component {
   }
   
 }
+
 
 export default Profile;
