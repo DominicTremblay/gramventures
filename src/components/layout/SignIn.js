@@ -12,7 +12,7 @@ class SignIn extends Component {
   }
 
   componentDidMount() {
-   var _this = this;
+   let _this = this;
    let token = Auth.retrieveToken();
    let url = "http://localhost:3000/login?" + "token="+ token;
    console.log(url);
