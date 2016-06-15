@@ -34,8 +34,6 @@ class Connect extends Component {
       window.location='/grammasters?open';
     }
 
-
-
   render() {    
 
     return (
@@ -44,7 +42,6 @@ class Connect extends Component {
       </div>
     )
   }
-
 }
 
 export default Connect;
