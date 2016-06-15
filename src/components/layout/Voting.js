@@ -14,7 +14,7 @@ class Voting extends Component {
       submission_id: 1
     }
 
-    let url = `http://localhost:3000/submission/${vote.submission_id}/vote`;
+    let url = `http://localhost:3000/submission/${vote.submission_id}/vote?cu=1`;
     console.log('URL to post: ', url)
     Request.postRequest(url, vote).then(function (response) {
       console.log(response);
