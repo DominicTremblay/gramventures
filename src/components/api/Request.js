@@ -42,6 +42,19 @@ module.exports = {
       }, function (response) {
         throw new Error(response.data.message);
       });
+  },
+
+  postRequest(url, data) {
+    console.log('Sending post request');
+    return axios.post(url, data)
+    .then(function (response) {
+       console.log('url: ', url);
+       console.log('data', data);
+       console.log("Request returns: ", response);     
+    }, function (response) {
+        throw new Error(response.data.message);
+      });
+
   }
 
 

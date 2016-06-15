@@ -2,15 +2,36 @@ import React, {Component} from 'react';
 import Breadcrumb from './Gramventures/Breadcrumb.js'
 //import {axios} from 'axios';
 var axios = require('axios');
+import Request from '../api/Request.js'
 
 class Voting extends Component {
 
 
+  registerVote(){
 
-    render() {
-      var innerBannerStyle = {
-      backgroundImage: 'url(images/header-11.jpg)'
-    };
+    let vote = {
+      user_id: 1,
+      submission_id: 1
+    }
+
+    let url = `http://localhost:3000/submission/${vote.submission_id}/vote`;
+    console.log('URL to post: ', url)
+    Request.postRequest(url, vote).then(function (response) {
+      console.log(response);
+    }, function (errorMessage) {
+      alert("errorMessage");
+    });
+
+  }
+
+  componentDidMount(){
+    this.registerVote();
+  }
+
+  render() {
+    var innerBannerStyle = {
+    backgroundImage: 'url(images/header-11.jpg)'
+  };
 
     return (
   <div>
