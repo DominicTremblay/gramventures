@@ -13,6 +13,22 @@ module.exports = {
   retrieveToken() {
     console.log("retrieving the access token");
     return JSON.parse(localStorage.getItem('token') || '{}')
+  },
+
+  saveUser(user) {
+    console.log('saving the user');
+    if (user) {
+      localStorage.setItem('user', JSON.stringify(user));
+      console.log('user saved');
+    }
+    else {
+      console.log("The user could not be saved");
+    }
+  },
+
+  retrieveUser() {
+    console.log("retrieving the user");
+    return JSON.parse(localStorage.getItem('user') || '{}');
   }
 
 }

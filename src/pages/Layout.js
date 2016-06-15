@@ -4,7 +4,6 @@ import Footer from '../components/layout/Footer.js';
 import Header from '../components/layout/Header.js';
 
 import Gramventures from '../components/layout/Gramventures.js';
-import BriefOpen from '../components/layout/BriefOpen.js';
 
 import Voting from '../components/layout/Voting.js';
 import Votebrief from '../components/layout/Votebrief.js';
@@ -26,9 +25,10 @@ export default class Layout extends Component {
     return (
 
       <div>
-<Nav />
+
+        <Nav />
         <Header />
-        
+
         {this.props.children}
 
         <Footer />
