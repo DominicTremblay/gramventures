@@ -1,13 +1,37 @@
 import React, {Component} from 'react';
 import {Navigation} from 'react-router';
-import Auth from './Auth.js'
+import Auth from './Auth.js';
+import Request from './Request';
 
 class Connect extends Component {
 
+  constructor() {
+    super();
+    console.log(JSON.parse(localStorage.getItem('token') || '{}'));
+    this.state = {objects: []};
+  }
+
+  getUser() {
+   console.log("Getting the user");
+   let _this = this;
+   let token = Auth.retrieveToken();
+   let url = "http://localhost:3000/login?token="+token;
+   console.log(url);
+   Request.getUser(url)
+      .then(function(user){
+        console.log(user);
+        _this.setState(user);
+        Auth.saveUser(user);
+      }, function(errorMessage){
+        alert("errorMessage");
+      });
+  }
+
     componentDidMount() {
-
-      Auth.saveToken(this.props.location.query.token);
-
+      let token = this.props.location.query.token;
+      Auth.saveToken(token);
+      this.getUser();
+      window.location='/grammasters?open';
     }
 
 
@@ -16,8 +40,7 @@ class Connect extends Component {
 
     return (
       <div>
-      <h1>Connecting...</h1>      
-        
+      <h1>Connecting...</h1>  
       </div>
     )
   }

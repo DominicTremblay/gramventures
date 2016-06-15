@@ -9,6 +9,7 @@ class Nav extends Component {
         <a href="http://localhost:3000/oauth/connect">[Log in]</a>
         <IndexLink to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Homepage</IndexLink>
         <Link to="/gramventures" activeClassName="active"  activeStyle={{fontWeight: 'bold'}}>Gramventures</Link>
+        <Link to="/submissions" activeClassName="active"  activeStyle={{fontWeight: 'bold'}}>Submissions</Link>
         <Link to="/signin" activeClassName="active"  activeStyle={{fontWeight: 'bold'}}>Signin</Link>
         <Link to="/connect" activeClassName="active"  activeStyle={{fontWeight: 'bold'}}>Connect</Link>
         <Link to="/voting" activeClassName="active"  activeStyle={{fontWeight: 'bold'}}>Voting</Link>

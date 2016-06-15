@@ -29,7 +29,6 @@ class SignIn extends Component {
     return (
         <div>
           <h3>SignIn Component</h3>
-          
         </div>
     )
   }
