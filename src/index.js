@@ -13,6 +13,7 @@ import Closedbrief from './components/layout/Closedbrief.js';
 
 import Voting from './components/layout/Voting.js';
 import Votebrief from './components/layout/Votebrief.js';
+import Vote from './components/layout/Vote.js';
 
 import Applybrief from './components/layout/Applybrief.js';
 import Apply from './components/layout/Apply.js';
@@ -46,6 +47,7 @@ ReactDOM.render(
 
       <Route path='/voting' component={Voting} />
       <Route path='/votebrief' component={Votebrief} />
+      <Route path='/vote' component={Vote} />
 
       <Route path='/applybrief' component={Applybrief} />
       <Route path='/apply' component={Apply} />

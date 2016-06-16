@@ -17,6 +17,7 @@ class Nav extends Component {
 
         <Link to="/voting" activeClassName="active"  activeStyle={{fontWeight: 'bold'}}>Voting</Link>
         <Link to="/votebrief" activeClassName="active"  activeStyle={{fontWeight: 'bold'}}>Votebrief</Link>
+        <Link to="/vote" aciveClassName="active"  activeStyle={{fontWeight: 'bold'}}>Vote</Link>
 
         <Link to="/closed" activeClassName="active"  activeStyle={{fontWeight: 'bold'}}>Closed</Link>
         <Link to="/closedbrief" activeClassName="active"  activeStyle={{fontWeight: 'bold'}}>Closedbrief</Link>
