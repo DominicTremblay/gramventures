@@ -12,6 +12,7 @@ class Nav extends Component {
         <Link to="/submissions" activeClassName="active"  activeStyle={{fontWeight: 'bold'}}>Submissions</Link>
         <Link to="/signin" activeClassName="active"  activeStyle={{fontWeight: 'bold'}}>Signin</Link>
         <Link to="/connect" activeClassName="active"  activeStyle={{fontWeight: 'bold'}}>Connect</Link>
+
         <Link to="/profile" activeClassName="active"  activeStyle={{fontWeight: 'bold'}}>Profile</Link>
 
         <Link to="/voting" activeClassName="active"  activeStyle={{fontWeight: 'bold'}}>Voting</Link>
@@ -23,6 +24,7 @@ class Nav extends Component {
 
         <Link to="/applybrief" activeClassName="active"  activeStyle={{fontWeight: 'bold'}}>Applybrief</Link>
         <Link to="/apply" activeClassName="active"  activeStyle={{fontWeight: 'bold'}}>Apply</Link>
+
 
         <Link activeClassName='active' to={ {pathname: '/connect', query: { token: 'abc123' } 
          }}>Access Token</Link>

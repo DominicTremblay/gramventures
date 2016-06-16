@@ -13,7 +13,7 @@ class Navbar extends Component {
           </div>
           <div id="navbar-collapse-1" className="navbar-collapse collapse">
             <ul className="nav navbar-nav">
-              <li><Link to="/gramventures" activeClassName="gramventures">Explore</Link></li>
+              <li><Link to="/gramventures?status=open" activeClassName="gramventures">Explore</Link></li>
             </ul>
           </div>
         </div>

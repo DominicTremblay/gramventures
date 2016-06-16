@@ -1,202 +1,115 @@
 import React, {Component} from 'react';
 import Breadcrumb from './Gramventures/Breadcrumb.js'
+import {Link} from 'react-router'
 //import {axios} from 'axios';
 var axios = require('axios');
 
 class Gramventures extends Component {
 
-  constructor() {
-    super();
+
+
+  constructor(props) {
+    super(props);
     this.state = {gramventures: []};
+    this.status = window.location.hash.match(/status=(.*)/)[1].split('&')[0];
+
   }
 
-  componentDidMount() {
-   // var _this = this;
-   // console.log('componentDidMount');
-   //  this.serverRequest = 
-   //    axios
-   //      .get("http://localhost:3000/gramventures")
-   //      .then(function(result) {    
-   //        //console.log("DATA:", result.data)
-   //        _this.setState({
-   //          gramventures: result.data
 
-   //        });
-   //      })
-   //      .catch (function (response) {
-   //        console.log(response);
-   //      }) 
+   componentDidMount() {
+   let _this = this;
+   let url = "http://localhost:3000/gramventures?status=" + this.status;
+   console.log(url);
+   axios.get(url)
+      .then(function(response){
+        let gramventures = response.data 
+        console.log(gramventures);
+        _this.setState({gramventures: gramventures});
+      }, function(errorMessage){
+        alert("*insert generic error message here*");
+      });
   }
 
+  handleFilterClick(status) {
+   let _this = this;
+   let url = "http://localhost:3000/gramventures?status=" + status;
+   console.log(url);
+   axios.get(url)
+      .then(function(response){
+        let gramventures = response.data 
+        console.log(gramventures);
+        _this.setState({gramventures: gramventures});
+      }, function(errorMessage){
+        alert("*insert generic error message here*");
+      });
+  }
+
+  navigate () {
+    this.props.history.replaceState(null, "/");
+  }
     render() {
       var innerBannerStyle = {
       backgroundImage: 'url(images/header-4.jpg)'
-    };
+      };
+      var gramventuresComponents = this.state.gramventures.map(function(item) {
+        return (
+        <div className="col-md-4">
+          <div className="cp-box"> <a href="brief-apply1.html"><img src={item.cover_image_url} alt="img" /></a>
+            <div className="cp-text-box">
+              <h2><a href="single-photo.html">{item.name}</a></h2>
+              <strong className="title">#{item.hashtag}</strong>
+              <div className="detail-row">
+                <ul>
+                  <li><a href="#"><i className="fa fa-picture-o" aria-hidden="true"></i>{item.number_entries}</a></li>
+                  <li><a href="#"><i className="fa fa-clock-o" aria-hidden="true"></i>{item.voting_end},{item.submission_end}</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>)
+      })
+      
 
     return (
   <div>
-  <section className="cp-inner-banner" style={innerBannerStyle}>
-    <h1>Explore</h1>
-      <Breadcrumb />
-  </section>
+    <section className="cp-inner-banner" style={innerBannerStyle}>
+      <h1>Explore</h1>
+        <Breadcrumb />
+    </section>
 
-  
-  <section className="cp-category cp-space">
-
-    <div className="container-fluid">
     
-    <div className="row">
-            <div className="col-md-12">
-              <ul className="cp-features-list">
-                <li className="active">              
-                  <a href=""><h3 style={{color: '#c23c48'}}>Open</h3></a>                 
-                </li>
-                <li>                  
-                 <a href="brief-voting.html"> <h3>Voting</h3> </a>               
-                </li>
-                <li>
-                 <a href="brief-closed.html"> <h3>Closed</h3></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          
+    <section className="cp-category cp-space">
+
+      <div className="container-fluid">
+      
       <div className="row">
-        <div className="col-md-4">
-          <div className="cp-box"> <a href="brief-apply1.html"><img src="images/photography-category/open/category-img-1.jpg" alt="img" /></a>
-            <div className="cp-text-box">
-              <h2><a href="single-photo.html">JUNGLE IN THE CITY</a></h2>
-              <strong className="title">#gramventure_jungle</strong>
-              <div className="detail-row">
-                <ul>
-                  <li><a href="#"><i className="fa fa-picture-o" aria-hidden="true"></i>400</a></li>
-                  <li><a href="#"><i className="fa fa-heart"  aria-hidden="true"></i>47</a></li>
-                  <li><a href="#"><i className="fa fa-clock-o" aria-hidden="true"></i>2 days left</a></li>
+              <div className="col-md-12">
+                <ul className="cp-features-list">
+                  <li className="active">              
+                    <Link to ="/gramventures?status=open" onClick={()=>this.handleFilterClick("open")}> <h3>Open</h3></Link>                 
+                  </li>
+                  <li>                  
+                   <Link to = "/gramventures?status=voting" onClick={()=>this.handleFilterClick("voting")}> <h3>Voting</h3></Link>               
+                  </li>
+                  <li>
+                   <Link to ="/gramventures?status=closed" onClick={()=>this.handleFilterClick("closed")}> <h3>Closed</h3></Link>
+                  </li>
                 </ul>
               </div>
-            </div>
-          </div>
-        </div>
-        <div className="col-md-4">
-          <div className="cp-box"> <a href="brief-apply2.html"><img src="images/photography-category/open/category-img-2.jpg" alt="img" /></a>
-             <div className="cp-text-box">
-              <h2><a href="single-photo.html">SUMMER IS HERE!</a></h2>
-              <strong className="title">#gramventure_summer</strong>
-              <div className="detail-row">
-                <ul>
-                  <li><a href="#"><i className="fa fa-picture-o" aria-hidden="true"></i>400</a></li>
-                  <li><a href="#"><i className="fa fa-clock-o" aria-hidden="true"></i>2 days left</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="col-md-4">
-          <div className="cp-box"> <a href="brief-apply3.html"><img src="images/photography-category/open/category-img-3.jpg" alt="img" /></a>
-             <div className="cp-text-box">
-              <h2><a href="single-photo.html">FAVORITE FOOD</a></h2>
-              <strong className="title">#gramventure_food</strong>
-              <div className="detail-row">
-                <ul>
-                  <li><a href="#"><i className="fa fa-picture-o" aria-hidden="true"></i>400</a></li>
-                  <li><a href="#"><i className="fa fa-clock-o" aria-hidden="true"></i>2 days left</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="col-md-4">
-          <div className="cp-box"> <a href="brief-apply.html"><img src="images/photography-category/open/category-img-4.jpg" alt="img" /></a>
-            <div className="cp-text-box">
-              <h2><a href="single-photo.html">NIGHT LIFE</a></h2>
-              <strong className="title">#gramventure_night</strong>
-              <div className="detail-row">
-                <ul>
-                  <li><a href="#"><i className="fa fa-picture-o" aria-hidden="true"></i>400</a></li>
-                  <li><a href="#"><i className="fa fa-clock-o" aria-hidden="true"></i>2 days left</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="col-md-4">
-          <div className="cp-box"> <a href="brief-apply.html"><img src="images/photography-category/open/category-img-5.jpg" alt="img" /></a>
-            <div className="cp-text-box">
-              <h2><a href="single-photo.html">TITLE</a></h2>
-              <strong className="title">#gramventure_title</strong>
-              <div className="detail-row">
-                <ul>
-                  <li><a href="#"><i className="fa fa-picture-o" aria-hidden="true"></i>400</a></li>
-                  <li><a href="#"><i className="fa fa-clock-o" aria-hidden="true"></i>2 days left</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="col-md-4">
-          <div className="cp-box"> <a href="brief-apply.html"><img src="images/photography-category/open/category-img-6.jpg" alt="img" /></a>
-            <div className="cp-text-box">
-              <h2><a href="single-photo.html">TITLE</a></h2>
-              <strong className="title">#gramventure_title</strong>
-              <div className="detail-row">
-                <ul>
-                  <li><a href="#"><i className="fa fa-picture-o" aria-hidden="true"></i>400</a></li>
-                  <li><a href="#"><i className="fa fa-clock-o" aria-hidden="true"></i>2 days left</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="col-md-4">
-          <div className="cp-box"> <a href="brief-apply.html"><img src="images/photography-category/open/category-img-7.jpg" alt="img" /></a>
-             <div className="cp-text-box">
-              <h2><a href="single-photo.html">TITLE</a></h2>
-              <strong className="title">#gramventure_title</strong>
-              <div className="detail-row">
-                <ul>
-                  <li><a href="#"><i className="fa fa-picture-o" aria-hidden="true"></i>400</a></li>
-                  <li><a href="#"><i className="fa fa-clock-o" aria-hidden="true"></i>2 days left</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="col-md-4">
-          <div className="cp-box"> <a href="brief-apply.html"><img src="images/photography-category/open/category-img-8.jpg" alt="img" /></a>
-            <div className="cp-text-box">
-              <h2><a href="single-photo.html">TITLE</a></h2>
-              <strong className="title">#gramventure_title</strong>
-              <div className="detail-row">
-                <ul>
-                  <li><a href="#"><i className="fa fa-picture-o" aria-hidden="true"></i>400</a></li>
-                  <li><a href="#"><i className="fa fa-clock-o" aria-hidden="true"></i>2 days left</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="col-md-4">
-          <div className="cp-box"> <a href="brief-apply.html"><img src="images/photography-category/open/category-img-9.jpg" alt="img" /></a>
-             <div className="cp-text-box">
-              <h2><a href="single-photo.html">TITLE</a></h2>
-              <strong className="title">#gramventure_title</strong>
-              <div className="detail-row">
-                <ul>
-                  <li><a href="#"><i className="fa fa-picture-o" aria-hidden="true"></i>400</a></li>
-                  <li><a href="#"><i className="fa fa-clock-o" aria-hidden="true"></i>2 days left</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
-      <div className="cp-load-more"><a href="#" className="load"><span className="icon-icons-10"></span>Load More</a></div>
-    </div>
-  </section>
+            
+            
+      <div className="row">
+          {gramventuresComponents}
+        </div>
+        <div className="cp-load-more"><a href="#" className="load"><span className="icon-icons-10"></span>Load More</a></div>
+      </div>
+    </section>
   </div>
     )
   }
   
 }
+
 
 export default Gramventures;

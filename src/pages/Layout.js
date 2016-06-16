@@ -3,6 +3,8 @@ import Nav from '../components/layout/Nav.js';
 import Footer from '../components/layout/Footer.js';
 import Header from '../components/layout/Header.js';
 
+
+
 import Gramventures from '../components/layout/Gramventures.js';
 
 import Voting from '../components/layout/Voting.js';
@@ -28,6 +30,9 @@ export default class Layout extends Component {
       <div>
 
         <Nav />
+
+
+
         <Header />
 
         {this.props.children}
