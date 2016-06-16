@@ -7,9 +7,7 @@ class LoginSection extends React.Component {
     return (
       <div className="login-section">
         <ul>
-          <li><a href="login.html"><i className="fa fa-sign-out"></i>Log in <b>/</b></a></li>
-          <li><Link to="/signup" activeClassName="active">Sign up</Link></li>
-          
+          <li><a href="login.html"><i className="fa fa-instagram"></i>Log in with Instagram</a></li>
         </ul>
       </div>
     )
