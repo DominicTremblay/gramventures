@@ -22,7 +22,7 @@ class Nav extends Component {
         <Link to="/closed" activeClassName="active"  activeStyle={{fontWeight: 'bold'}}>Closed</Link>
         <Link to="/closedbrief" activeClassName="active"  activeStyle={{fontWeight: 'bold'}}>Closedbrief</Link>
 
-        <Link to="/applybrief" activeClassName="active"  activeStyle={{fontWeight: 'bold'}}>Applybrief</Link>
+        <Link to="/applybrief/1" activeClassName="active"  activeStyle={{fontWeight: 'bold'}}>Applybrief</Link>
         <Link to="/apply" activeClassName="active"  activeStyle={{fontWeight: 'bold'}}>Apply</Link>
 
 

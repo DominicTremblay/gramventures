@@ -7,12 +7,10 @@ module.exports = {
     return axios
       .get(url)
       .then(function(response) {    
-        console.log('here');
         if (response.data.cod && res.data.message) {
           throw new Error(response.data.message);
         }
         else {
-          console.log("Request returns: ", response);
           return response.data;
         }
 
@@ -35,7 +33,6 @@ module.exports = {
           throw new Error(response.data.message);
         }
         else {
-          console.log("Request returns: ", response);
           return response.data;
         }
 
