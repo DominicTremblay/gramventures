@@ -24,8 +24,8 @@ class Applybrief extends Component {
  
   componentDidMount() {
    let _this = this;
-   // let id = 1;
-   let url = "http://localhost:3000/gramventures/1";
+   let id = this.props.params.id
+   let url = "http://localhost:3000/gramventures/" + id;
    console.log(url);
    Request.getRequest(url)
       .then(function(response){
@@ -37,9 +37,14 @@ class Applybrief extends Component {
   }
 
   timeToEnter() {
-    let currentTime = new Date();
-    console.log (currentTime - this.state.gramventure.submission_end);
-    return(5);
+    let submission_end = this.state.gramventure.submission_end;
+    if (submission_end !== "") {
+      let currentTime = new Date();
+      let endTime = new Date(this.state.gramventure.submission_end);
+      let timeToEnter = endTime.getDate() - currentTime.getDate();
+      return(timeToEnter);
+    }
+    return 0;
   }
 
 

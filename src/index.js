@@ -47,7 +47,7 @@ ReactDOM.render(
       <Route path='/voting' component={Voting} />
       <Route path='/votebrief' component={Votebrief} />
 
-      <Route path='/applybrief' component={Applybrief} />
+      <Route path='/applybrief/:id' component={Applybrief} />
       <Route path='/apply' component={Apply} />
 
       <Route path='/closed' component={Closed} />
