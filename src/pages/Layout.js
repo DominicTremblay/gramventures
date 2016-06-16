@@ -7,6 +7,7 @@ import Gramventures from '../components/layout/Gramventures.js';
 
 import Voting from '../components/layout/Voting.js';
 import Votebrief from '../components/layout/Votebrief.js';
+import Vote from '../components/layout/Vote.js';
 
 import Closed from '../components/layout/Closed.js';
 import Closedbrief from '../components/layout/Closedbrief.js';

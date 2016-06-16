@@ -945,6 +945,11 @@ cp-gallery-masonry-1 .cp-category .cp-box {
 	float: left;
 	width: 100%;
 }
+
+.vote-symbol {
+	padding-top: 200px;
+	
+}
 .cp-single-photo .frame img {
 	display: block;
 	width: 100%;
