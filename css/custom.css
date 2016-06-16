@@ -52,6 +52,33 @@ Sidebar heading:	font:18px/18px 'Roboto', sans-serif;
 -	NEWSLETTER SECTION				LINE		00		-		000
 
 End of Table of Content Line 000 **/
+
+/*******************************************************APPLY BUTTON*******************************************************/
+
+.btn_apply {
+	float: left;
+	width: 100%;
+	padding: 20px 0;
+	font: 500 18px/18px "Roboto", sans-serif;
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+	margin: 25px 0 0 0;
+	background-color: #d94350;
+	border-width: 0px;
+    border-style: none;
+    border-color: none;
+	outline:none;
+}
+
+
+
+
+
+
+/*******************************************************APPLY BUTTON*******************************************************/
+
+
 body {
 	margin: 0;
 	padding: 0;
@@ -2087,7 +2114,9 @@ cp-gallery-masonry-1 .cp-category .cp-box {
 	text-align: center;
 	text-decoration: none;
 	margin: 25px 0 0 0;
+	background-color: #d94350;
 }
+
 .cp-prograss-bars ul {
 	margin: 0px;
 	padding: 0px;
