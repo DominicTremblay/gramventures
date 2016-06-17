@@ -31,6 +31,7 @@ class Connect extends Component {
       let token = this.props.location.query.token;
       Auth.saveToken(token);
       this.getUser();
+      console.log(Auth.retrieveUser());
       window.location='/grammasters?open';
     }
 
