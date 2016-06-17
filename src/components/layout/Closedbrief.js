@@ -179,8 +179,7 @@ class Closedbrief extends Component {
         </div>
       </li>
     </ul>
-    <div className="cp-load-more"><a href="#" className="load"><span className="icon-icons-10"></span>Load More</a></div>
-  </section>
+    </section>
         </div>
        </div>
      </div>

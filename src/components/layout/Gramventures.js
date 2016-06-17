@@ -73,15 +73,13 @@ class Gramventures extends Component {
       backgroundImage: 'url(images/header-4.jpg)'
       };
  
-
-
       var gramventuresComponents = this.state.gramventures.map(function(item) {
         let link = `applybrief/${item.id}`;
         return (
         <div className="col-md-4">
           <div className="cp-box"><Link to={link}><img src={item.cover_image_url} alt="img" /></Link>
             <div className="cp-text-box">
-              <h2><a href="www.facebook.com">{item.name}</a></h2>
+              <h2><Link to={link}>{item.name}</Link></h2>
               <strong className="title">#{item.hashtag}</strong>
               <div className="detail-row">
                 <ul>
@@ -128,8 +126,7 @@ class Gramventures extends Component {
       <div className="row">
           {gramventuresComponents}
         </div>
-        <div className="cp-load-more"><a href="#" className="load"><span className="icon-icons-10"></span>Load More</a></div>
-      </div>
+        </div>
     </section>
   </div>
     )

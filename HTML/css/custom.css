@@ -830,7 +830,7 @@ cp-gallery-masonry-1 .cp-category .cp-box {
 	margin: 20px 0 0 0;
 }
 .cp-category .cp-box img {
-	display: block;
+	/*display: block;*/
 	width: 100%;
 }
 .cp-category .cp-box .cp-text-box {

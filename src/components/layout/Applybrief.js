@@ -129,9 +129,8 @@ class Applybrief extends Component {
       <ListElement submissions={this.state.gramventure.submissions} />
 
     </ul>
-    <div className="cp-load-more"><a href="#" className="load"><span className="icon-icons-10"></span>Load More</a></div>
-  </section>
-        </div>
+    </section>
+      </div>
       </div>
     </div>
 
