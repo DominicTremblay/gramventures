@@ -50,7 +50,7 @@ ReactDOM.render(
       <Route path='/vote' component={Vote} />
 
       <Route path='/applybrief' component={Applybrief} />
-      <Route path='/apply' component={Apply} />
+      <Route path='/apply/:hashtag' component={Apply} />
 
       <Route path='/closed' component={Closed} />
       <Route path='/closedbrief' component={Closedbrief} />

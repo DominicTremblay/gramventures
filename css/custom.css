@@ -2105,7 +2105,8 @@ cp-gallery-masonry-1 .cp-category .cp-box {
 	border-color: #ea4c89;
 	color: #ea4c89;
 }
-.cp-team-info a.btn-view {
+.cp-team-info a.btn-view,
+.cp-team-info button.btn-view  {
 	float: left;
 	width: 100%;
 	padding: 20px 0;
