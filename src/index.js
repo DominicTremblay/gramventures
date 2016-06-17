@@ -17,7 +17,7 @@ import Vote from './components/layout/Vote.js';
 
 import Applybrief from './components/layout/Applybrief.js';
 import Apply from './components/layout/Apply.js';
-
+import Test from './components/layout/Test.js';
 
 
 import Signup from './components/layout/Signup.js';
@@ -54,6 +54,7 @@ ReactDOM.render(
 
       <Route path='/closed' component={Closed} />
       <Route path='/closedbrief' component={Closedbrief} />
+      <Route path='/test' component={Test} />
 
 
     </Route>

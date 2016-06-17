@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
 import Breadcrumb from './Gramventures/Breadcrumb.js'
+import Auth from '../api/Auth.js'
 //import {axios} from 'axios';
 var axios = require('axios');
 
 class Apply extends Component {
 
-
+  componentDidMount() {
+    let user = Auth.retrieveUser();
+    console.log('User: ', user);
+  }
 
     render() {
       var innerBannerStyle = {

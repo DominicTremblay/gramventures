@@ -47,6 +47,13 @@ class Applybrief extends Component {
     return 0;
   }
 
+  handleApply(){
+    let hashtag = this.state.gramventure.hashtag;
+    let url=`http://localhost:8080/#/apply/${hashtag}`;
+    window.location = url;
+
+  }
+
 
     render() {  
       var innerBannerStyle = {
@@ -108,7 +115,9 @@ class Applybrief extends Component {
                 </ul>   
               </div>
               <div className="cp-team-info">
-              <a href="apply.html" className="btn-view">Apply</a></div>
+              
+              <button className="btn-view" onClick={this.handleApply.bind(this)}>Apply</button>
+              </div>
               </div>
               </div>
             </div>
