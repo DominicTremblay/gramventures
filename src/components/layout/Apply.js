@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import Breadcrumb from './Gramventures/Breadcrumb.js'
-import Auth from '../api/Auth.js'
+import Breadcrumb from './Gramventures/Breadcrumb.js';
+
 //import {axios} from 'axios';
 import Request from '../api/Request.js';
 import Auth from '../api/Auth.js';
@@ -9,7 +9,7 @@ var axios = require('axios');
 
 class Apply extends Component {
 
-<<<<<<< HEAD
+
 
   constructor(props) {
     super(props);
@@ -57,12 +57,7 @@ class Apply extends Component {
 
 
 
-=======
-  componentDidMount() {
-    let user = Auth.retrieveUser();
-    console.log('User: ', user);
-  }
->>>>>>> 80a065c0294261125cfd0747c006b39d7f112dd6
+
 
     render() {
       var innerBannerStyle = {
