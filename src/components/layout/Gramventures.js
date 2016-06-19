@@ -73,8 +73,9 @@ class Gramventures extends Component {
       backgroundImage: 'url(images/header-4.jpg)'
       };
  
+      let status = this.state.status;
       var gramventuresComponents = this.state.gramventures.map(function(item) {
-        let link = `applybrief/${item.id}`;
+        let link = `applybrief/${item.id}?status=${status}`;
         return (
         <div className="col-md-4">
           <div className="cp-box"><Link to={link}><img src={item.cover_image_url} alt="img" /></Link>

@@ -47,7 +47,7 @@ ReactDOM.render(
 
       <Route path='/voting' component={Voting} />
       <Route path='/votebrief' component={Votebrief} />
-      <Route path='/vote' component={Vote} />
+      <Route path='/gramventures/:id/vote' component={Vote} />
 
 
       

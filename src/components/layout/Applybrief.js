@@ -49,20 +49,42 @@ class Applybrief extends Component {
   }
 
   handleApply(){
+
     let hashtag = this.state.gramventure.hashtag;
+    let id = this.props.params.id
     let url=`http://localhost:8080/#/apply/${hashtag}`;
+    
+    if (this.props.location.query.status === 'voting') {
+      url = `http://localhost:8080/#/gramventures/${id}/vote`;
+    } 
+
     window.location = url;
+  };
 
-  }
+    buttonTitle() {
+      let status = this.props.location.query.status;
+      switch (status) {
+        case "open": 
+          return ("Apply");
+        case "voting": 
+          return ("Vote");
+        default: return ("Closed");
+      }
+    };
 
+    displayStyle() {
+      let styleVisible = {display: 'visible'};
+        if (this.props.location.query.status === 'closed')
+          styleVisible = {display: 'none'};
+        return(styleVisible);
+      };
 
     render() {  
       var innerBannerStyle = {
       backgroundImage: `url(${this.state.gramventure.cover_image_url})`
-    };
+      };
 
-
-
+      
 
     return (
 
@@ -117,7 +139,7 @@ class Applybrief extends Component {
               </div>
               <div className="cp-team-info">
               
-              <button className="btn-view" onClick={this.handleApply.bind(this)}>Apply</button>
+              <button className="btn-view" style={this.displayStyle()} onClick={this.handleApply.bind(this)}>{this.buttonTitle()}</button>
               </div>
               </div>
               </div>
