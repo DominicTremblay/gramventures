@@ -22,14 +22,12 @@ class Apply extends Component {
    let token = Auth.retrieveToken();
    console.log("Voilà le user", user);
    let hashtag = this.props.params.hashtag;
-   let url = `http://localhost:3000/profile/images?cu=${user[0].id}&hashtag=${hashtag}&token=`+token;
+   let url = `http://localhost:3000/profile/images?cu=${user[0].id}&hashtag=${hashtag}&token=${token}&gramventure=${_this.props.params.id}`
    console.log(url);
    Request.getToken(url)
       .then(function(images){
         console.log("it worked!");
         console.log(images);
-        //if (this.state.includes
-
         _this.setState({images: images});
       }, function(errorMessage){
         alert("errorMessage");
