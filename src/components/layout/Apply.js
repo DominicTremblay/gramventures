@@ -22,12 +22,14 @@ class Apply extends Component {
    let token = Auth.retrieveToken();
    console.log("Voilà le user", user);
    let hashtag = this.props.params.hashtag;
-   let url = `http://localhost:3000/profile/images?cu=1&hashtag=${hashtag}&token=`+token;
+   let url = `http://localhost:3000/profile/images?cu=${user[0].id}&hashtag=${hashtag}&token=`+token;
    console.log(url);
    Request.getToken(url)
       .then(function(images){
         console.log("it worked!");
         console.log(images);
+        //if (this.state.includes
+
         _this.setState({images: images});
       }, function(errorMessage){
         alert("errorMessage");
@@ -63,7 +65,7 @@ class Apply extends Component {
     let submissions = [];
     let _this = this;
     
-    function pushImages(image, i){
+    function pushImages(image, i){ //if (!submissions.includes({image_id: image.id, gramventure_id: _this.props.params.id})
       submissions.push({
         image_id: image.id,
         gramventure_id: _this.props.params.id
