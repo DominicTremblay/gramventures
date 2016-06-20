@@ -52,7 +52,7 @@ class Applybrief extends Component {
 
     let hashtag = this.state.gramventure.hashtag;
     let id = this.props.params.id
-    let url=`http://localhost:8080/#/apply/${hashtag}`;
+    let url=`http://localhost:8080/#/gramventures/${id}/apply/${hashtag}`;
     
     if (this.props.location.query.status === 'voting') {
       url = `http://localhost:8080/#/gramventures/${id}/vote`;

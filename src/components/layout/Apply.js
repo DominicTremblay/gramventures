@@ -34,20 +34,57 @@ class Apply extends Component {
       });
   }
 
-  handleApply() {
-    console.log("the button is working");
+  handleSelect(data, i){
 
-    let submissions = {
-    gramventure_id: 1,
-    image_id: 1
+    let current_image = this.state.images[i];
+
+    if (current_image.selected){ 
+      current_image.selected = false;
+      console.log(current_image);
+      console.log('image deselected');
+      console.log(data, i);
+      this.setState({});
+    } else { 
+      console.log('image selected');
+      console.log(current_image);
+      console.log(data, i);
+      current_image.selected = true;
+      this.setState({});
+    }
+    
   }
 
+  handleApply() {
+    
+    function isImageSelected(current_image){
+      return current_image.selected;
+    }
+    let filter_image = this.state.images.filter(isImageSelected);
+    let submissions = [];
+    let _this = this;
+    
+    function pushImages(image, i){
+      submissions.push({
+        image_id: image.id,
+        gramventure_id: _this.props.params.id
+      });
+    }
+    filter_image.forEach(pushImages);
 
-    let url = "http://localhost:3000/submissions/1/1";
+  //   let submissions = [{
+  //   gramventure_id: 1,
+  //   image_id: 1
+  // }];
+
+ 
+    
+
+    let url = "http://localhost:3000/submissions";
+    console.log(submissions);
     Request.postRequest(url, submissions)
       .then(function(submissions){
       console.log("post request is working");
-     
+      window.location = "http://localhost:8080/#/gramventures?status=open";
     }, 
     function(errorMessage){
       alert("errorMessage");
@@ -64,19 +101,19 @@ class Apply extends Component {
       backgroundImage: 'url(images/header-11.jpg)'
     };
 
-    var imagesComponents = this.state.images.map(function(item) {
+    var imagesComponents = this.state.images.map((item, i)=>{
         return (
 
           <li className="col-md-4">
           <div className="blog-post">
             <div className="cp-thumb">
-              <a href="#"> <img src={item.url} alt="" /></a>
+              <img src={item.url} alt="" onClick={this.handleSelect.bind(this, item.id, i)}/>
             </div>
               
               <ul className="post-meta">
                 <li>
-                  <input id="id1" name="name1" type="checkbox" />
-                  <label for="id1"> Select</label>
+                  <input id="id1" name="name1" checked={item.selected} type="checkbox" onClick={this.handleSelect.bind(this, item.id, i)}/>
+                  <label for="id1" onClick={this.handleSelect.bind(this, item.id, i)}> Select</label>
                 </li>
               </ul>
             </div>
@@ -104,7 +141,7 @@ class Apply extends Component {
           </div>
           <div className="col-md-4">
             <div className="cp-team-info">
-              <button className="btn-view" onClick={this.handleApply}>Apply</button>
+              <button className="btn-view" onClick={this.handleApply.bind(this)}>Apply</button>
              </div>
             </div>
            <div className="col-md-4">
