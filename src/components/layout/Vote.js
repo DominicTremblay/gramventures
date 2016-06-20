@@ -82,8 +82,10 @@ getImageDetails() {
   let submissions = this.state.submissions;
   let max = this.state.submissions.length-1;
   let imgIndex = this.state.imgIndex;
-  if (imgIndex >= max)
+  if (imgIndex >= max) {
     imgIndex = max;
+    this.setState({imgIndex: max});
+  }
   console.log("getDetails imgIndex: ", imgIndex);
 
 
@@ -106,13 +108,33 @@ voteForImage(){
       user_id: user[0].id,
       submission_id: submissionId
     }
+
   let url = `http://localhost:3000/submission/${submissionId}/vote?cu=${user[0].id}`;
-  console.log('URL to post: ', url)
-  Request.postRequest(url, vote).then(function(response) {
-    console.log(response);
+  console.log('URL to get: ', url)
+
+  Request.getRequest(url).then(function(response) {
+    console.log("Vote: ", response);
+
+    if (response.length === 0) {
+      console.log("Registering the vote");
+      Request.postRequest(url, vote).then(function(response) {
+        console.log(response);
+      }, function (errorMessage) {
+        alert("errorMessage");
+      });      
+    }
+    else {
+      console.log("User has already voted for this image");
+    }
+
+
+
   }, function (errorMessage) {
     alert("errorMessage");
   });
+
+
+
 
 }
 
