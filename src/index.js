@@ -6,7 +6,8 @@ import Gramventures from 'gramventures';
 import SignIn from 'signin';
 import Home from './components/layout/Home.js';
 
-import Profile from './components/layout/Profile.js';
+//import Profile from './components/layout/Profile.js';
+import Profile from 'profile';
 
 import Closed from './components/layout/Closed.js';
 import Closedbrief from './components/layout/Closedbrief.js';
@@ -17,7 +18,6 @@ import Vote from './components/layout/Vote.js';
 
 import Applybrief from './components/layout/Applybrief.js';
 import Apply from './components/layout/Apply.js';
-import Test from './components/layout/Test.js';
 
 
 import Signup from './components/layout/Signup.js';

@@ -2,29 +2,39 @@ import React, {Component} from 'react';
 
 import Breadcrumb from './Gramventures/Breadcrumb.js'
 import Request from '../api/Request.js';
-//import {axios} from 'axios';
+import Auth from '../api/Auth.js'
+
 var axios = require('axios');
 
 class Profile extends Component {
 
+constructor(props){
+  super(props);
+
+  this.state = {
+    user: {
+      full_name: "Loading...",
+      email: "Loading...",
+      instagram_handle: "Loading...",
+      bio: "Loading..."
+    }
+  }
+}
+
   componentDidMount() {
    let _this = this;
-   // let id = 1;
    let url = "http://localhost:3000/profile?cu=1";
    console.log(url);
    Request.getToken(url)
-      .then(function(profile){
+      .then(function(user){
         console.log("it worked!");
-        console.log(profile);
-        _this.setState(profile);
+        console.log(user);
+        _this.setState({user: user});
+        console.log(_this.state.user);
       }, function(errorMessage){
         alert("errorMessage");
       });
   }
-
-
-
-
 
     render() {
       var innerBannerStyle = {
@@ -32,7 +42,7 @@ class Profile extends Component {
     };
 
     return (
-  
+      
   <div>
  
   <div className="cp-main-content tb-50"> 
@@ -49,20 +59,12 @@ class Profile extends Component {
           <div className="col-md-6">
             <div className="cp-team-info">
              <div className="contact-title">
-                <h2>Nemo Clownfish</h2>
-                <strong>Photographer</strong> </div>
-               <address>
-              <ul>
-                <li><i className="fa fa-home"></i>The big blue sea,
-                  123 Lorem Ipsum 
-                  Earth.</li>
-                <li><i className="fa fa-phone"></i>0123 456 7890</li>
-                <li><i className="fa fa-fax"></i>0123 456 7890</li>
-                <li><i className="fa fa-envelope-o"></i>nemo@thesea.com</li>
-                <li><i className="fa fa-skype"></i>0123 456 7890</li>
-                <li><i className="fa fa-globe"></i>www.nemoatsea.com</li>
-              </ul>
-              </address>
+                <h2>{this.state.user.full_name}</h2>
+                <strong><a href={`http://instagram.com/${this.state.user.instagram_handle}`} target="_blank">instagram.com/{this.state.user.instagram_handle}</a></strong> </div>
+              <h3>Bio</h3>
+              {this.state.user.bio}
+              <br/>
+              <br/>
               <ul className="social">
                 <li><a href="#" className="fb"><span className="icon-socialicons-01"></span></a></li>
                 <li><a href="#" className="ins"><span className="icon-socialicons-03"></span></a></li>

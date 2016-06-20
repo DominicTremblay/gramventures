@@ -31,7 +31,8 @@ var config = {
       bootstrap: 'bootstrap/dist/css/bootstrap.css',
       gramventures: './components/layout/Gramventures.js',
       signin: './components/layout/SignIn.js',
-      layout: './pages/layout.js'
+      layout: './pages/layout.js',
+      profile: './components/layout/Profile.js'
     },
     extensions: ['', '.js', '.jsx']
   },

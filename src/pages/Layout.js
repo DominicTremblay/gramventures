@@ -26,17 +26,9 @@ export default class Layout extends Component {
   render() {
 
     return (
-
       <div>
-
-        <Nav />
-
-
-
         <Header />
-
         {this.props.children}
-
         <Footer />
       </div>
     )
