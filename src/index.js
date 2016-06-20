@@ -48,13 +48,13 @@ ReactDOM.render(
       <Route path='/voting' component={Voting} />
       <Route path='/votebrief' component={Votebrief} />
       <Route path='/gramventures/:id/vote' component={Vote} />
-
+       
 
       
-      <Route path='/apply/:hashtag' component={Apply} />
+      <Route path='/gramventures/:id/apply/:hashtag' component={Apply} />
 
       <Route path='/applybrief/:id' component={Applybrief} />
-      <Route path='/apply' component={Apply} />
+      // <Route path='/apply' component={Apply} />
 
 
       <Route path='/closed' component={Closed} />
