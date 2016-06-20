@@ -5,7 +5,14 @@ import SideBarSocial from './Header/SideBarSocial.js'
 import Navbar from './Header/Navbar.js'
 import SideBarMenu from './Header/SideBarMenu.js'
 
+
 class Header extends Component {
+
+  constructor() {
+    super();
+  }
+
+
 
   render() {
     return (

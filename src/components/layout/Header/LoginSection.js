@@ -1,13 +1,18 @@
 import React from 'react';
 import {Link} from 'react-router';
+import Auth from '../../api/Auth.js';
+import LoginType from './LoginType.js';
 
 class LoginSection extends React.Component {
+ 
 
   render() {
+
+
     return (
       <div className="login-section">
         <ul>
-          <li><a href="login.html"><i className="fa fa-instagram"></i>Log in with Instagram</a></li>
+          <li><LoginType currentUser={Auth.retrieveUser()} /></li>
         </ul>
       </div>
     )
