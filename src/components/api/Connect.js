@@ -32,7 +32,7 @@ class Connect extends Component {
       Auth.saveToken(token);
       this.getUser();
       console.log(Auth.retrieveUser());
-      window.location='/grammasters?open';
+      window.location='/grammasters?status=open';
     }
 
   render() {    

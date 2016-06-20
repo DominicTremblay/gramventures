@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 
-import Breadcrumb from './Gramventures/Breadcrumb.js'
+import Breadcrumb from './Gramventures/Breadcrumb.js';
 import Request from '../api/Request.js';
-import Auth from '../api/Auth.js'
+import Auth from '../api/Auth.js';
+import ListElement from './Profile/ListElement.js';
 
 var axios = require('axios');
 
@@ -17,15 +18,18 @@ constructor(props){
       email: "Loading...",
       instagram_handle: "Loading...",
       bio: "Loading..."
-    }
+    },
+    submissions: []
   }
 }
 
   componentDidMount() {
    let _this = this;
-   let url = "http://localhost:3000/profile?cu=1";
+   let currentUser = Auth.retrieveUser();
+   let url = `http://localhost:3000/profile?cu=${currentUser[0].id}`;
+
    console.log(url);
-   Request.getToken(url)
+   Request.getRequest(url)
       .then(function(user){
         console.log("it worked!");
         console.log(user);
@@ -34,6 +38,18 @@ constructor(props){
       }, function(errorMessage){
         alert("errorMessage");
       });
+
+   url = `http://localhost:3000/profile/submissions?cu=${currentUser[0].id}`
+   Request.getRequest(url)
+      .then(function(submissions){
+        console.log("it worked!");
+        console.log("Submissions: ", submissions);
+        _this.setState({submissions: submissions});
+        console.log(_this.state.submissions);
+      }, function(errorMessage){
+        alert("errorMessage");
+      });
+
   }
 
     render() {
@@ -81,119 +97,9 @@ constructor(props){
         </div>     
         <div className="row">  
        <section className="cp-category cp-photo-box">
+    <h3>Your Submissions</h3>   
     <ul>
-      <li>
-        <div className="cp-box"> <a href="single-photo.html"><img src="images/photography-category/closed/s-landscape/photo-1.jpg" alt="img" /></a>
-          <div className="cp-text-box">
-            <h2><a href="single-photo.html">Title</a></h2>
-            <strong className="title">Name</strong>
-            <div className="detail-row">
-              <ul>
-                <li><a href="#"><i className="fa fa-heart"></i>47</a></li>
-                <li><a href="#"><i className="fa fa-share-alt"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div className="cp-box"> <a href="single-photo.html"><img src="images/photography-category/closed/s-landscape/photo-2.jpg" alt="img" /></a>
-          <div className="cp-text-box">
-            <h2><a href="single-photo.html">Title</a></h2>
-            <strong className="title">Name</strong>
-            <div className="detail-row">
-              <ul>
-                <li><a href="#"><i className="fa fa-heart"></i>47</a></li>
-                <li><a href="#"><i className="fa fa-share-alt"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div className="cp-box"> <a href="single-photo.html"><img src="images/photography-category/closed/s-landscape/photo-3.jpg" alt="img" /></a>
-          <div className="cp-text-box">
-            <h2><a href="single-photo.html">Title</a></h2>
-            <strong className="title">Name</strong>
-            <div className="detail-row">
-              <ul>
-                <li><a href="#"><i className="fa fa-heart"></i>47</a></li>
-                <li><a href="#"><i className="fa fa-share-alt"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div className="cp-box"> <a href="single-photo.html"><img src="images/photography-category/closed/s-landscape/photo-4.jpg" alt="img" /></a>
-          <div className="cp-text-box">
-           <h2><a href="single-photo.html">Title</a></h2>
-            <strong className="title">Name</strong>
-            <div className="detail-row">
-              <ul>
-                <li><a href="#"><i className="fa fa-heart"></i>47</a></li>
-                <li><a href="#"><i className="fa fa-share-alt"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div className="cp-box"> <a href="single-photo.html"><img src="images/photography-category/closed/s-landscape/photo-5.jpg" alt="img" /></a>
-          <div className="cp-text-box">
-            <h2><a href="single-photo.html">Title</a></h2>
-            <strong className="title">Name</strong>
-            <div className="detail-row">
-              <ul>
-                <li><a href="#"><i className="fa fa-heart"></i>47</a></li>
-                <li><a href="#"><i className="fa fa-share-alt"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div className="cp-box"> <a href="single-photo.html"><img src="images/photography-category/closed/s-landscape/photo-6.jpg" alt="img" /></a>
-          <div className="cp-text-box">
-            <h2><a href="single-photo.html">Title</a></h2>
-            <strong className="title">Name</strong>
-            <div className="detail-row">
-              <ul>
-                <li><a href="#"><i className="fa fa-heart"></i>47</a></li>
-                <li><a href="#"><i className="fa fa-share-alt"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div className="cp-box"> <a href="single-photo.html"><img src="images/photography-category/closed/s-landscape/photo-7.jpg" alt="img" /></a>
-          <div className="cp-text-box">
-           <h2><a href="single-photo.html">Title</a></h2>
-            <strong className="title">Name</strong>
-            <div className="detail-row">
-              <ul>
-                <li><a href="#"><i className="fa fa-heart"></i>47</a></li>
-                <li><a href="#"><i className="fa fa-share-alt"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div className="cp-box"> <a href="single-photo.html"><img src="images/photography-category/closed/s-landscape/photo-8.jpg" alt="img" /></a>
-          <div className="cp-text-box">
-            <h2><a href="single-photo.html">Title</a></h2>
-            <strong className="title">Name</strong>
-            <div className="detail-row">
-              <ul>
-                <li><a href="#"><i className="fa fa-heart"></i>47</a></li>
-                <li><a href="#"><i className="fa fa-share-alt"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </li>
+      <ListElement submissions={this.state.submissions} />      
     </ul>
   </section>
         </div>
