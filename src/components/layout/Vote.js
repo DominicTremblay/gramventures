@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import Breadcrumb from './Gramventures/Breadcrumb.js'
-import Request from '../api/Request.js'
+import Breadcrumb from './Gramventures/Breadcrumb.js';
+import Request from '../api/Request.js';
+import Auth from '../api/Auth.js';
 
 var axios = require('axios');
 
@@ -79,20 +80,65 @@ shuffleArray(length){
 getImageDetails() {
 
   let submissions = this.state.submissions;
+  let max = this.state.submissions.length-1;
+  let imgIndex = this.state.imgIndex;
+  if (imgIndex >= max)
+    imgIndex = max;
+  console.log("getDetails imgIndex: ", imgIndex);
 
-  if (submissions.length !== 0) 
+
+
+  if (max !== 0) 
     this.setState({imgDetails:
-                    { url: submissions[this.state.imgIndex].image.url,
+                    { url: submissions[imgIndex].image.url,
                       title: this.state.gramventure.name,
-                      handle: submissions[this.state.imgIndex].image.user.instagram_handle,
-                      by: submissions[this.state.imgIndex].image.user.full_name,
-                      totalVotes: submissions[this.state.imgIndex].total_votes
+                      handle: submissions[imgIndex].image.user.instagram_handle,
+                      by: submissions[imgIndex].image.user.full_name,
+                      totalVotes: submissions[imgIndex].total_votes
                     }});
 }
 
-handleYes() {
+voteForImage(){
+  let imgIndex = this.state.imgIndex;
+  let submissionId = this.state.submissions[imgIndex].id;
+  let user = Auth.retrieveUser();
+  let vote = {
+      user_id: user[0].id,
+      submission_id: submissionId
+    }
+  let url = `http://localhost:3000/submission/${submissionId}/vote?cu=${user[0].id}`;
+  console.log('URL to post: ', url)
+  Request.postRequest(url, vote).then(function(response) {
+    console.log(response);
+  }, function (errorMessage) {
+    alert("errorMessage");
+  });
 
+}
 
+nextImage() {
+
+  console.log('index before: ', this.state.imgIndex);
+  let imgIndex = this.state.imgIndex;
+  console.log("imgIndex before: ", imgIndex);
+  imgIndex += 1;
+  console.log("imgIndex after: ", imgIndex);
+  this.setState({imgIndex: imgIndex}, function(){
+    this.getImageDetails();
+  });
+  console.log('index after: ', this.state);
+
+}
+
+handleYes(e) {
+  e.preventDefault();
+  this.voteForImage();
+  this.nextImage();  
+}
+
+handleNo(e){
+  e.preventDefault();
+  this.nextImage(); 
 }
 
     render() {
@@ -106,7 +152,7 @@ handleYes() {
         <div className="col-md-2">
         
           <div className="frame">
-          <a href="#"><img className="vote-symbol" src="images/vote-no.png" alt="No" /></a>
+          <a href="#" onClick={this.handleNo.bind(this)}><img className="vote-symbol" src="images/vote-no.png" alt="No" /></a>
           </div>
         </div>
         <div className="col-md-5">
@@ -138,7 +184,7 @@ handleYes() {
         </div>
           <div className="col-md-2">
           <div className="frame">
-          <a href="#" ><img className="vote-symbol" src="images/vote-yes.png" alt="Yes" /></a>
+          <a href="#" onClick={this.handleYes.bind(this)}><img className="vote-symbol" src="images/vote-yes.png" alt="Yes" /></a>
           </div>
         </div>  
       </div>
