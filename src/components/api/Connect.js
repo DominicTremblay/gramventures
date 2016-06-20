@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
-import {Navigation} from 'react-router';
+import {Router, RouterContext} from 'react-router';
 import Auth from './Auth.js';
 import Request from './Request';
 
 class Connect extends Component {
 
-  constructor() {
-    super();
+  constructor(props, context) {
+    super(props);
+    context.router;
     console.log(JSON.parse(localStorage.getItem('token') || '{}'));
     this.state = {objects: []};
   }
@@ -22,6 +23,7 @@ class Connect extends Component {
         console.log(user);
         _this.setState(user);
         Auth.saveUser(user);
+        _this.context.router.push('/gramventures?status=open');
       }, function(errorMessage){
         alert("errorMessage");
       });
@@ -32,8 +34,11 @@ class Connect extends Component {
       Auth.saveToken(token);
       this.getUser();
       console.log(Auth.retrieveUser());
-      window.location='/grammasters?status=open';
+      console.log("Context: ", this.props);
+      
     }
+
+
 
   render() {    
 
@@ -44,5 +49,9 @@ class Connect extends Component {
     )
   }
 }
+
+Connect.contextTypes = {
+    router: React.PropTypes.func.isRequired
+};
 
 export default Connect;
