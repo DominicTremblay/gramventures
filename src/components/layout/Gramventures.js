@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import Breadcrumb from './Gramventures/Breadcrumb.js'
 import {Link} from 'react-router'
+import Breadcrumb from './Gramventures/Breadcrumb.js'
 //import {axios} from 'axios';
 var axios = require('axios');
 
@@ -102,7 +102,7 @@ class Gramventures extends Component {
   <div>
     <section className="cp-inner-banner" style={innerBannerStyle}>
       <h1>Explore</h1>
-        <Breadcrumb />
+      <Breadcrumb />
     </section>
 
     
