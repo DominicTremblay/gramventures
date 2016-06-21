@@ -693,7 +693,7 @@ strong.logo-2 {
 #cp-banner {
 	float: left;
 	width: 100%;
-	background-image: url(../images/banner-bg.jpg);
+	background-image: url(../images/banner-bg-lighter.jpg);
 	height: 800px;
 	position: relative;
 	overflow: hidden;
