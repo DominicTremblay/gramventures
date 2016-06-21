@@ -693,7 +693,7 @@ strong.logo-2 {
 #cp-banner {
 	float: left;
 	width: 100%;
-	background-image: url(../images/banner-bg.jpg);
+	background-image: url(../images/banner-bg-lighter.jpg);
 	height: 800px;
 	position: relative;
 	overflow: hidden;
@@ -1229,7 +1229,7 @@ cp-gallery-masonry-1 .cp-category .cp-box {
 	font: 500 14px/14px 'Roboto', sans-serif;
 	color: #444;
 	float: left;
-	width: 110px;
+	width: 125px;
 	padding: 0 0 5px 0;
 }
 .cp-image-detail ul li strong {

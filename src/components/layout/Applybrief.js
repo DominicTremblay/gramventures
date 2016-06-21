@@ -15,7 +15,7 @@ class Applybrief extends Component {
                                  hashtag: '#gramventures',
                                  number_entries: 0,
                                  prize: '$0',
-                                 cover_image_url: 'images/header-apply.jpg',
+                                 cover_image_url: 'images/header-apply.jpeg',
                                  submission_end: "",
                                  submissions: []
                                 }};
@@ -99,8 +99,9 @@ class Applybrief extends Component {
       backgroundImage: `url(${this.state.gramventure.cover_image_url})`
       };
 
+      var sortedSubmissions = this.state.gramventure.submissions.sort((a, b) => (b).total_votes - (a).total_votes);
+      console.log(sortedSubmissions)
       
-
     return (
 
 
@@ -163,7 +164,7 @@ class Applybrief extends Component {
         <section className="cp-category cp-photo-box">
     <ul>
 
-      <ListElement submissions={this.state.gramventure.submissions} />
+      <ListElement submissions={sortedSubmissions} />
 
     </ul>
     </section>

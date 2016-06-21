@@ -69,7 +69,7 @@ constructor(props){
         </div>
           <div className="col-md-4">
             <div className="cp-team-info">
-              <div className="cp-thumb"><img src="images/team-large.jpg" alt="" /></div>
+              <div className="cp-thumb"><img src={this.state.user.profile_picture} alt="" /></div>
                </div>
           </div>         
           <div className="col-md-6">
@@ -82,10 +82,10 @@ constructor(props){
               <br/>
               <br/>
               <ul className="social">
-                <li><a href="#" className="fb"><span className="icon-socialicons-01"></span></a></li>
-                <li><a href="#" className="ins"><span className="icon-socialicons-03"></span></a></li>
-                <li><a href="#" className="tw"><span className="icon-socialicons-04"></span></a></li>
-                <li><a href="#" className="pin"><span className="icon-socialicons-05"></span></a></li>
+                <li><a href="http://www.facebook.com" target = "_blank" className="fb"><span className="icon-socialicons-01"></span></a></li>
+                <li><a href={`http://www.instagram.com/${this.state.user.instagram_handle}`} target = "_blank" className="ins"><span className="icon-socialicons-03"></span></a></li>
+                <li><a href="http://www.twitter.com" target = "_blank" className="tw"><span className="icon-socialicons-04"></span></a></li>
+                <li><a href="httP://www.pintrest.com" target = "_blank" className="pin"><span className="icon-socialicons-05"></span></a></li>
               </ul>
             </div>
           </div>
