@@ -26,8 +26,6 @@ class Header extends Component {
       <div className="container"> <strong className="logo"><a href="index.html"><img src="images/logo.png" alt="logo" /></a></strong> </div>
     </section>
 
-    <Navbar />
-
   </header>
 
     )

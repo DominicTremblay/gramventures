@@ -7,6 +7,8 @@ class Breadcrumb extends Component {
     return (
       <ol className="breadcrumb">
         <li><Link to="/" activeClassName="active">Home</Link></li>
+        <li><Link to="/gramventures" activeClassName="active">Open</Link></li>
+        <li className="active">Open</li>
       </ol>      
     )
   }

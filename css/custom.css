@@ -735,6 +735,10 @@ strong.logo-2 {
 #cp-banner .caption .holder h1 span {
 	color: #faa61a;
 }
+
+#cp-banner .caption .holder h1:hover span {
+	color: #c23c48;
+}
 #cp-banner .caption .holder b {
 	display: block;
 	text-align: center;
@@ -4292,4 +4296,9 @@ ul.checklist li:before {
 }
 .top-50 {
 	padding: 50px 0 0 0;
+}
+
+.no-hover:hover {
+	text-decoration: none;
+	color: red;
 }
