@@ -69,7 +69,7 @@ constructor(props){
         </div>
           <div className="col-md-4">
             <div className="cp-team-info">
-              <div className="cp-thumb"><img src="images/team-large.jpg" alt="" /></div>
+              <div className="cp-thumb"><img src={this.state.user.profile_picture} alt="" /></div>
                </div>
           </div>         
           <div className="col-md-6">

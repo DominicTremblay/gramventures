@@ -193,7 +193,7 @@ handleNo(e){
                   <ul>
                     <li><a href="#" style={{paddingRight:'5px'}}><i className="fa fa-instagram"></i>  </a></li>
                     <div>{this.state.imgDetails.handle}</div>
-                    <li> <span className="text">Photographer</span> <strong> {this.state.imgDetails.by}</strong> </li>
+                    <li> <span className="text">Instagrammer</span> <strong> {this.state.imgDetails.by}</strong> </li>
                   </ul>
                 </div>
                 </div>          

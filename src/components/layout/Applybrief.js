@@ -148,8 +148,8 @@ class Applybrief extends Component {
                 <ul className="categories">
                   <li><i className="fa fa-instagram" aria-hidden="true"></i> #{this.state.gramventure.hashtag}</li>
                   <li><i className="fa fa-usd" aria-hidden="true"></i> Prize: {this.state.gramventure.prize}</li>
-                  <li><i className="fa fa-picture-o" aria-hidden="true"></i> {this.state.gramventure.number_entries} Entries</li>
-                  <li><i className="fa fa-clock-o" aria-hidden="true"></i> {this.timeToEnter()}</li>
+   t               <li><i className="fa fa-picture-o" aria-hidden="true"></i> {this.state.gramventure.number_entries} Entries</li>
+   t               <li><i className="fa fa-clock-o" aria-hidden="true"></i> {this.timeToEnter()}</li>
                 </ul>   
               </div>
               <div className="cp-team-info">
