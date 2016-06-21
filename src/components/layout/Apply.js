@@ -13,7 +13,9 @@ class Apply extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {images: []};
+    this.state = {images: [],
+      modalChecked: false
+    };
   }
 
   componentDidMount() {
@@ -63,7 +65,7 @@ class Apply extends Component {
     let submissions = [];
     let _this = this;
     
-    function pushImages(image, i){ //if (!submissions.includes({image_id: image.id, gramventure_id: _this.props.params.id})
+    function pushImages(image, i){ 
       submissions.push({
         image_id: image.id,
         gramventure_id: _this.props.params.id
@@ -71,10 +73,10 @@ class Apply extends Component {
     }
     filter_image.forEach(pushImages);
 
-  //   let submissions = [{
-  //   gramventure_id: 1,
-  //   image_id: 1
-  // }];
+
+    
+
+  
 
  
     
@@ -82,9 +84,13 @@ class Apply extends Component {
     let url = "http://localhost:3000/submissions";
     console.log(submissions);
     Request.postRequest(url, submissions)
-      .then(function(submissions){
+      .then(function(submission){
       console.log("post request is working");
-      window.location = "http://localhost:8080/#/gramventures?status=open";
+      if (submissions.length !== 0){
+      console.log("The submissions array is not empty");
+      _this.setState({modalChecked: true}); 
+      }
+      //window.location = "http://localhost:8080/#/gramventures?status=open";
     }, 
     function(errorMessage){
       alert("errorMessage");
@@ -92,14 +98,19 @@ class Apply extends Component {
     return false;
   }
 
-
+  handleClose() {
+    window.location = "http://localhost:8080/#/gramventures?status=open";
+  }
 
 
 
     render() {
+      let _this = this;
       var innerBannerStyle = {
       backgroundImage: 'url(images/header-11.jpg)'
     };
+    var styleHashtag ={textDecoration: "underline",
+    color: "blue"};
 
     var imagesComponents = this.state.images.map((item, i)=>{
         return (
@@ -120,9 +131,34 @@ class Apply extends Component {
             </li>
             )
       })
+    
 
     return (
+
+
+
     <div>
+  <div className= "modal-container" >
+
+  <input id="modal-toggle" type="checkbox" checked={_this.state.modalChecked}> </input>
+
+  <button>Click me</button>
+
+  <div className="modal-backdrop">
+
+    <div className="modal-content">
+      
+
+      <h2>Successfully added to <a href="http://localhost:8080/#/gramventures?status=open" style={styleHashtag}>#{this.props.params.hashtag}</a> !</h2>
+
+
+      <label className="modal-close button" for="modal-toggle" onClick={this.handleClose}>OK</label>
+
+    </div>
+
+  </div>
+
+</div>
       <section className="cp-inner-banner" style={innerBannerStyle}>
         <h1>Explore</h1>
           <Breadcrumb />
