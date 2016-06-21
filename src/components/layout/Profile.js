@@ -4,6 +4,7 @@ import Breadcrumb from './Gramventures/Breadcrumb.js';
 import Request from '../api/Request.js';
 import Auth from '../api/Auth.js';
 import ListElement from './Profile/ListElement.js';
+import Modal from '../modal/Modal.js';
 
 var axios = require('axios');
 
@@ -19,11 +20,13 @@ constructor(props){
       instagram_handle: "Loading...",
       bio: "Loading..."
     },
-    submissions: []
+    submissions: [],
+    isModalOpen: false
   }
 }
 
   componentDidMount() {
+     console.log("State: ", this.state); 
    let _this = this;
    let currentUser = Auth.retrieveUser();
    let url = `http://localhost:3000/profile?cu=${currentUser[0].id}`;
@@ -96,8 +99,10 @@ constructor(props){
         <hr /> 
         </div>     
         <div className="row">  
+
        <section className="cp-category cp-photo-box">
     <h3>Your Submissions</h3>   
+    
     <ul>
       <ListElement submissions={this.state.submissions} />      
     </ul>
