@@ -14,7 +14,8 @@ class Apply extends Component {
   constructor(props) {
     super(props);
     this.state = {images: [],
-      modalChecked: false
+      modalChecked: false,
+      modalNopicture: false
     };
   }
 
@@ -30,7 +31,11 @@ class Apply extends Component {
       .then(function(images){
         console.log("it worked!");
         console.log(images);
+        if (images.length === 0){
+          _this.setState({modalNopicture: true});
+        } else { 
         _this.setState({images: images});
+        }
       }, function(errorMessage){
         alert("errorMessage");
       });
@@ -72,14 +77,6 @@ class Apply extends Component {
       });
     }
     filter_image.forEach(pushImages);
-
-
-    
-
-  
-
- 
-    
 
     let url = "http://localhost:3000/submissions";
     console.log(submissions);
@@ -138,27 +135,40 @@ class Apply extends Component {
 
 
     <div>
+    <div className= "modal-container" >
+
+  <input id="modal-toggle" type="checkbox" checked={_this.state.modalNopicture}> </input>
+
+
+
+    <div className="modal-backdrop">
+      <div className="modal-content">
+        <h2>No more photos with the hashtag <a href="http://localhost:8080/#/gramventures?status=open" style={styleHashtag}>#{this.props.params.hashtag}</a> !</h2>
+        <label className="modal-close button" for="modal-toggle" onClick={this.handleClose}>OK</label>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+    
   <div className= "modal-container" >
 
   <input id="modal-toggle" type="checkbox" checked={_this.state.modalChecked}> </input>
 
-  <button>Click me</button>
-
-  <div className="modal-backdrop">
-
-    <div className="modal-content">
-      
-
-      <h2>Successfully added to <a href="http://localhost:8080/#/gramventures?status=open" style={styleHashtag}>#{this.props.params.hashtag}</a> !</h2>
 
 
-      <label className="modal-close button" for="modal-toggle" onClick={this.handleClose}>OK</label>
-
+    <div className="modal-backdrop">
+      <div className="modal-content">
+        <h2>Successfully added to <a href="http://localhost:8080/#/gramventures?status=open" style={styleHashtag}>#{this.props.params.hashtag}</a> !</h2>
+        <label className="modal-close button" for="modal-toggle" onClick={this.handleClose}>OK</label>
+      </div>
     </div>
-
   </div>
+  
 
-</div>
       <section className="cp-inner-banner" style={innerBannerStyle}>
         <h1>Explore</h1>
           <Breadcrumb />
