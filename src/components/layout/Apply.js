@@ -162,7 +162,7 @@ class Apply extends Component {
 
     <div className="modal-backdrop">
       <div className="modal-content">
-        <h2>Successfully added to <a href="http://localhost:8080/#/gramventures?status=open" style={styleHashtag}>#{this.props.params.hashtag}</a> !</h2>
+        <h2>Successfully added to #{this.props.params.hashtag}!</h2>
         <label className="modal-close button" for="modal-toggle" onClick={this.handleClose}>OK</label>
       </div>
     </div>

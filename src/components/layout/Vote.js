@@ -184,6 +184,13 @@ handleNo(e){
           <div className="cp-text-box">
             <div className="row">
                 <div className="left-col">
+                 <div className="detail-row">
+                <ul>
+                  <li><i className="fa fa-picture-o" aria-hidden="true"></i> {item.number_entries}</li>
+                  <li><i className="fa fa-clock-o" aria-hidden="true"></i> {_this.countDownTimer(item.submission_end, item.voting_end)}</li>
+                </ul>
+                
+              </div>
 
                   <h2><a href="#">{this.state.imgDetails.title}</a></h2>
                   <div className="cp-image-detail">
