@@ -11,11 +11,10 @@ class Footer extends Component {
         <div className="footer-social">
           <div className="cp-sidebar-social"> <strong className="title">Connect us on</strong>
             <ul>
-              <li><a href="#"><span className="icon-socialicons-01"></span></a></li>
-              <li><a href="#"><span className="icon-socialicons-02"></span></a></li>
-              <li><a href="#"><span className="icon-socialicons-03"></span></a></li>
-              <li><a href="#"><span className="icon-socialicons-04"></span></a></li>
-              <li><a href="#"><span className="icon-socialicons-05"></span></a></li>
+              <li><a href="http://www.facebook.com"><span className="icon-socialicons-01"></span></a></li>
+              <li><a href="http://www.instagram.com"><span className="icon-socialicons-03"></span></a></li>
+              <li><a href="http://www.twitter.com"><span className="icon-socialicons-04"></span></a></li>
+              <li><a href="http://www.pintrest.com"><span className="icon-socialicons-05"></span></a></li>
             </ul>
           </div>
         </div>

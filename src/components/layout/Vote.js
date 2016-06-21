@@ -21,10 +21,10 @@ constructor(props) {
                   submissions: [],
                   imgIndex: 0,
                   imgDetails:
-                    {url: "images/photography-category/voting/s-people/single-photo-1.jpg",
+                    {url: "images/header-apply.jpeg",
                      title: "Vote",
-                     handle: "Coming up",
-                     by: "Coming up",
+                     handle: "",
+                     by: "",
                      totalVotes: 0
                     }
                   };
@@ -191,9 +191,8 @@ handleNo(e){
                     <h4>Cast your vote</h4>
                     </div>
                   <ul>
-                    <li><a href="#" style={{paddingRight:'5px'}}><i className="fa fa-instagram"></i>  </a></li>
-                    <div>{this.state.imgDetails.handle}</div>
-                    <li> <span className="text">Instagrammer</span> <strong> {this.state.imgDetails.by}</strong> </li>
+                    <li>{this.state.imgDetails.handle}<a href={`http://www.instagram.com/${this.state.imgDetails.handle}`} target = "_blank"><i className="fa fa-instagram"></i></a></li>
+                    <li> <span className="text">Instagramer:</span> <strong> {this.state.imgDetails.by}</strong> </li>
                   </ul>
                 </div>
                 </div>          

@@ -15,7 +15,7 @@ class Applybrief extends Component {
                                  hashtag: '#gramventures',
                                  number_entries: 0,
                                  prize: '$0',
-                                 cover_image_url: 'images/header-apply.jpg',
+                                 cover_image_url: 'images/header-apply.jpeg',
                                  submission_end: "",
                                  submissions: []
                                 }};
@@ -99,8 +99,9 @@ class Applybrief extends Component {
       backgroundImage: `url(${this.state.gramventure.cover_image_url})`
       };
 
+      var sortedSubmissions = this.state.gramventure.submissions.sort((a, b) => (b).total_votes - (a).total_votes);
+      console.log(sortedSubmissions)
       
-
     return (
 
 
@@ -148,8 +149,8 @@ class Applybrief extends Component {
                 <ul className="categories">
                   <li><i className="fa fa-instagram" aria-hidden="true"></i> #{this.state.gramventure.hashtag}</li>
                   <li><i className="fa fa-usd" aria-hidden="true"></i> Prize: {this.state.gramventure.prize}</li>
-   t               <li><i className="fa fa-picture-o" aria-hidden="true"></i> {this.state.gramventure.number_entries} Entries</li>
-   t               <li><i className="fa fa-clock-o" aria-hidden="true"></i> {this.timeToEnter()}</li>
+                  <li><i className="fa fa-picture-o" aria-hidden="true"></i> {this.state.gramventure.number_entries} Entries</li>
+                  <li><i className="fa fa-clock-o" aria-hidden="true"></i> {this.timeToEnter()}</li>
                 </ul>   
               </div>
               <div className="cp-team-info">
@@ -163,7 +164,7 @@ class Applybrief extends Component {
         <section className="cp-category cp-photo-box">
     <ul>
 
-      <ListElement submissions={this.state.gramventure.submissions} />
+      <ListElement submissions={sortedSubmissions} />
 
     </ul>
     </section>

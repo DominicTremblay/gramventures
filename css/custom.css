@@ -957,7 +957,7 @@ cp-gallery-masonry-1 .cp-category .cp-box {
 .cp-category .cp-box .cp-text-box .detail-row ul li a,
 .cp-category .cp-box .cp-text-box .detail-row ul li span,
 .cp-category .cp-box .cp-text-box .detail-row ul li i {
-	color: rgb(252, 252, 4);
+	color: #fff;
 }
 /****************************************************************PHOTOGRAPHY CATEGORY END****************************************************************/
 
@@ -1229,7 +1229,7 @@ cp-gallery-masonry-1 .cp-category .cp-box {
 	font: 500 14px/14px 'Roboto', sans-serif;
 	color: #444;
 	float: left;
-	width: 110px;
+	width: 125px;
 	padding: 0 0 5px 0;
 }
 .cp-image-detail ul li strong {
