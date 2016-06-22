@@ -954,7 +954,9 @@ cp-gallery-masonry-1 .cp-category .cp-box {
 .cp-category .cp-box .cp-text-box .detail-row ul li {
 	margin: 0;
 }
-.cp-category .cp-box .cp-text-box .detail-row ul li a {
+.cp-category .cp-box .cp-text-box .detail-row ul li a,
+.cp-category .cp-box .cp-text-box .detail-row ul li span,
+.cp-category .cp-box .cp-text-box .detail-row ul li i {
 	color: #fff;
 }
 /****************************************************************PHOTOGRAPHY CATEGORY END****************************************************************/

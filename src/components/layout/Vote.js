@@ -187,17 +187,13 @@ handleNo(e){
 
                   <h2><a href="#">{this.state.imgDetails.title}</a></h2>
                   <div className="cp-image-detail">
-                  <div className="head"> <span className="icon-icons-12"></span>  
-                    <h2>Details</h2>
+                  <div className="head"> 
+                    <h4>Cast your vote</h4>
                     </div>
                   <ul>
-                    <li><a href="#" style={{paddingRight:'5px'}}><i className="fa fa-instagram"></i> {this.state.imgDetails.handle} </a><a href="#" style={{paddingRight:'5px'}}><i className="fa fa-heart"> </i> 47</a><a href="#" style={{paddingRight:'5px'}}><i className="fa fa-share-alt"> </i></a></li>
-                    <li></li>
-                    <li></li>
-                    <li> <span className="text">By</span> <strong> : {this.state.imgDetails.by}</strong> </li>
-                    <li> <span className="text">Category</span> <strong>:  Sea, Wild</strong> </li>
-                    <li> <span className="text">Uploaded</span> <strong>:  June 2, 2016</strong> </li>    
-                    <li> <span className="text">Keywords</span> <strong>: dress, girl, relaxation, beauty, body, face </strong> </li>
+                    <li><a href="#" style={{paddingRight:'5px'}}><i className="fa fa-instagram"></i>  </a></li>
+                    <div>{this.state.imgDetails.handle}</div>
+                    <li> <span className="text">Photographer</span> <strong> {this.state.imgDetails.by}</strong> </li>
                   </ul>
                 </div>
                 </div>          

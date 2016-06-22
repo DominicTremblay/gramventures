@@ -51,17 +51,20 @@ class Gramventures extends Component {
     if (this.state.status === 'closed'){
       return "Finished"
     }
-      var _second = 1000;
-      var _minute = _second * 60;
-      var _hour = _minute * 60;
-      var _day = _hour * 24;
-    var now = new Date();
-    var distance = end - now;
-    var days = Math.floor(distance / _day);
-    if (days === 1)
-      return days + " day remaining!"
-    else 
-      return days + " days remaining!"
+
+    var options = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'};
+    return end.toLocaleString('en-US', options);
+    //   var _second = 1000;
+    //   var _minute = _second * 60;
+    //   var _hour = _minute * 60;
+    //   var _day = _hour * 24;
+    // var now = new Date();
+    // var distance = end - now;
+    // var days = Math.floor(distance / _day);
+    // if (days === 1)
+    //   return days + " day remaining"
+    // else 
+    //   return days + " days remaining"
   }
 
   navigate () {
@@ -84,8 +87,8 @@ class Gramventures extends Component {
               <strong className="title">#{item.hashtag}</strong>
               <div className="detail-row">
                 <ul>
-                  <li><a href="#"><i className="fa fa-picture-o" aria-hidden="true"></i>{item.number_entries}</a></li>
-                  <li><a href="#"><i className="fa fa-clock-o" aria-hidden="true"></i> {_this.countDownTimer(item.submission_end, item.voting_end)}</a></li>
+                  <li><i className="fa fa-picture-o" aria-hidden="true"></i> {item.number_entries}</li>
+                  <li><i className="fa fa-clock-o" aria-hidden="true"></i> {_this.countDownTimer(item.submission_end, item.voting_end)}</li>
                 </ul>
                 
               </div>

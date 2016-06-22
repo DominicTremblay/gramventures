@@ -38,15 +38,30 @@ class Applybrief extends Component {
   }
 
   timeToEnter() {
+    let status = this.props.location.query.status;
     let submission_end = this.state.gramventure.submission_end;
-    if (submission_end !== "") {
+    let voting_end = this.state.gramventure.voting_end;
+    let timeToEnter;
+    if (submission_end !== "" && voting_end !== "") {
       let currentTime = new Date();
-      let endTime = new Date(this.state.gramventure.submission_end);
-      let timeToEnter = endTime.getDate() - currentTime.getDate();
-      return(timeToEnter);
+      let submissionendTime = new Date(this.state.gramventure.submission_end);
+      let votingendTime = new Date(this.state.gramventure.voting_end);
+    if (currentTime < submissionendTime) {
+      timeToEnter = submissionendTime.getDate() - currentTime.getDate();
+      var options = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'};
+      return submissionendTime.toLocaleString('en-US', options);
     }
-    return 0;
+    else if (currentTime > submissionendTime && currentTime < votingendTime) {
+      timeToEnter = votingendTime.getDate() - currentTime.getDate();
+      var options = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'};
+      return votingendTime.toLocaleString('en-US', options);
+    }
+    else {
+      return ("Closed");
+    }
+    
   }
+}
 
   handleApply(){
 
@@ -110,7 +125,7 @@ class Applybrief extends Component {
                   <a href="post-details.html"></a></div>
                 <h3><a href="#"> Creative Brief</a></h3>
                 <ul className="post-meta">
-                  <li>Created: June 13, 2016</li>
+                  <li>Created: {this.state.gramventure.date_created}</li>
                 </ul>
                 <h3>What We are Looking For:</h3>
                 <p>{this.state.gramventure.brief}</p>                    
@@ -131,10 +146,10 @@ class Applybrief extends Component {
               <div className="widget search-widget">
                 <h3></h3>
                 <ul className="categories">
-                  <li><a href="#"><i className="fa fa-instagram" aria-hidden="true"></i>#{this.state.gramventure.hashtag}</a></li>
-                  <li><a href="#"><i className="fa fa-usd" aria-hidden="true"></i> Prize: {this.state.gramventure.prize}</a></li>
-                  <li><a href="#"><i className="fa fa-picture-o" aria-hidden="true"></i>{this.state.gramventure.number_entries} Entries</a></li>
-                  <li><a href="#"><i className="fa fa-clock-o" aria-hidden="true"></i> Time to Enter: {this.timeToEnter()} days</a></li>
+                  <li><i className="fa fa-instagram" aria-hidden="true"></i> #{this.state.gramventure.hashtag}</li>
+                  <li><i className="fa fa-usd" aria-hidden="true"></i> Prize: {this.state.gramventure.prize}</li>
+                  <li><i className="fa fa-picture-o" aria-hidden="true"></i> {this.state.gramventure.number_entries} Entries</li>
+                  <li><i className="fa fa-clock-o" aria-hidden="true"></i> {this.timeToEnter()}</li>
                 </ul>   
               </div>
               <div className="cp-team-info">
