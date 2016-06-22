@@ -147,7 +147,7 @@ class Applybrief extends Component {
               <div className="widget search-widget">
                 <h3></h3>
                 <ul className="categories">
-                  <li><i className="fa fa-instagram" aria-hidden="true"></i> #{this.state.gramventure.hashtag}</li>
+                  <li><i className="fa fa-instagram" aria-hidden="true"></i><a href={`http://www.instagram.com/explore/tags/${this.state.gramventure.hashtag}`} target = "_blank">#{this.state.gramventure.hashtag}</a></li>
                   <li><i className="fa fa-usd" aria-hidden="true"></i> Prize: {this.state.gramventure.prize}</li>
                   <li><i className="fa fa-picture-o" aria-hidden="true"></i> {this.state.gramventure.number_entries} Entries</li>
                   <li><i className="fa fa-clock-o" aria-hidden="true"></i> {this.timeToEnter()}</li>

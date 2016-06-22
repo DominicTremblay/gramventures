@@ -6,9 +6,10 @@ class Breadcrumb extends Component {
   render() {
     return (
       <ol className="breadcrumb">
-        <li><Link to="/" activeClassName="active">Home</Link></li>
-        <li><Link to="/gramventures" activeClassName="active">Open</Link></li>
-        <li className="active">Open</li>
+        <li><Link to="/" activeClassName="active">Home /</Link></li>
+        <li><Link to="/gramventures?status=open" activeClassName="active">Open /</Link></li>
+        <li><Link to="/gramventures?status=vote" activeClassName="active">Vote /</Link></li>
+        <li><Link to="/gramventures?status=close" activeClassName="active">Close</Link></li>
       </ol>      
     )
   }
