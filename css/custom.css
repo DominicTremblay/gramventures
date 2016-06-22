@@ -980,10 +980,17 @@ cp-gallery-masonry-1 .cp-category .cp-box {
 	width: 100%;
 }
 
-.vote-symbol {
+.vote-symbol-yes:hover {
 	padding-top: 200px;
+	background-color: rgba(8, 252, 0, 0.1);
 	
 }
+.vote-symbol-no:hover {
+	padding-top: 200px;
+	background-color: rgba(232, 76, 61, 0.4);
+	
+}
+
 .cp-single-photo .frame img {
 	display: block;
 	width: 100%;
