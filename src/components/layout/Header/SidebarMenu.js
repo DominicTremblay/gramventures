@@ -11,9 +11,9 @@ class SideBarMenu extends Component {
       <div className="sidebar-menu-box">
         <div className="cp-burger-nav"> 
 
-          <div id="cp_side-menu-btn" className="cp_side-menu"><a href="#" className=""><span className="icon-icons-07"></span></a></div>
+          <div id="cp_side-menu-btn" className="cp_side-menu"><span className=""><span className="icon-icons-07"></span></span></div>
 
-          <div id="cp_side-menu"> <a href="#" id="cp-close-btn" className="crose"><i className="fa fa-close"></i></a>
+          <div id="cp_side-menu"> <a id="cp-close-btn" className="crose"><i className="fa fa-close"></i></a>
             <div className="cp-top-bar">
               <div className="login-section">
                 <ul>
@@ -28,7 +28,10 @@ class SideBarMenu extends Component {
                   <nav>
                     <ul className="navbar-nav">
                
-                      <li><a href="brief-open.html">Explore</a></li> 
+                      <li><a href="http://localhost:8080/#/gramventures?status=open&_k=7i0ywc">Explore</a></li>
+                      <li><a href="http://localhost:8080/#/gramventures?status=open&_k=7i0ywc">Open grammventures</a></li> 
+                      <li><a href="http://localhost:8080/#/gramventures?status=voting&_k=brn0wu">Voting grammventures</a></li>
+                      <li><a href="http://localhost:8080/#/gramventures?status=closed&_k=80jptf">Closed grammventures</a></li>
                     </ul>
                   </nav>
                 </div>
