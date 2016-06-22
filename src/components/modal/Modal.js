@@ -18,8 +18,7 @@ class Modal extends Component{
       background: 'transparent'
     }
 
-
-    console.log('Props Modal: ', this.props.transitionName);
+    console.log("Modal:", this.props.isOpen);
     if(this.props.isOpen){
       return (
         <ReactCSSTransitionGroup transitionName={this.props.transitionName}>
