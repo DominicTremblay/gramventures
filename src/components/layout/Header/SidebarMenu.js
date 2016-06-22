@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import SideBarSocial from './SideBarSocial.js'
 import {Link} from 'react-router';
+import Auth from '../../api/Auth.js';
+import LoginType from './LoginType.js';
 
 class SideBarMenu extends Component {
 
@@ -15,7 +17,7 @@ class SideBarMenu extends Component {
             <div className="cp-top-bar">
               <div className="login-section">
                 <ul>
-                  <li><a href="login.html"><i className="fa fa-instagram"></i>Log in with Instagram</a></li>  
+                  <li><LoginType currentUser={Auth.retrieveUser()} /></li>  
                 </ul>
               </div>
             </div>
