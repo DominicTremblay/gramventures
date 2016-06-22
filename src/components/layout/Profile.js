@@ -45,10 +45,7 @@ constructor(props){
    url = `http://localhost:3000/profile/submissions?cu=${currentUser[0].id}`
    Request.getRequest(url)
       .then(function(submissions){
-        console.log("it worked!");
-        console.log("Submissions: ", submissions);
         _this.setState({submissions: submissions});
-        console.log(_this.state.submissions);
       }, function(errorMessage){
         alert("errorMessage");
       });

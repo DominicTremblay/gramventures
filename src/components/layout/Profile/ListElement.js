@@ -11,10 +11,12 @@ class ListElement extends Component {
   }
 
   componentDidMount() {
+    console.log("didMount State: ", this.state);
     document.addEventListener('keydown', this._handleEscKey.bind(this));
   }
 
   _handleEscKey(e) {
+    console.log("escape key: ", e.keyCode);
     if (e.keyCode === 27)
       this.setState({ isModalOpen: false });
   }
@@ -33,7 +35,7 @@ class ListElement extends Component {
 
   render() {
     let _this = this;
-    console.log("_this.state: ", this.state);
+    console.log("_this.state: ", _this.state.isModalOpen);
     var listElement = this.props.submissions.map(function(item){
     let imgSrc = encodeURI(item.image.url);
    
