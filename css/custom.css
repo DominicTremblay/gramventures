@@ -2509,6 +2509,17 @@ ul.checklist li:before {
 	margin: 0px;
 
 }
+.cp-features-list h3:hover {
+	color: orange;
+}
+
+.current:link {
+	color: blue;
+}
+
+.cp-features-list h3:visited {
+	color: blue;
+}
 
 .cp-features-list h3 {
 	color: #9B9898;
