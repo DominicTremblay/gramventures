@@ -210,8 +210,6 @@ handleClose() {
           <div className="cp-text-box">
             <div className="row">
                 <div className="left-col">
-                
-
                   <h2><a href="#">{this.state.imgDetails.title}</a></h2>
                   <div className="cp-image-detail">
                   <div className="head"> 

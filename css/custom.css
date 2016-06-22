@@ -2509,6 +2509,17 @@ ul.checklist li:before {
 	margin: 0px;
 
 }
+.cp-features-list h3:hover {
+	color: orange;
+}
+
+.current:link {
+	color: blue;
+}
+
+.cp-features-list h3:visited {
+	color: blue;
+}
 
 .cp-features-list h3 {
 	color: #9B9898;
@@ -3161,12 +3172,12 @@ ul.checklist li:before {
 	font: 500 14px/14px 'Roboto', sans-serif;
 	color: #444;
 }
-.sidebar .widget .categories li a:before {
+/*.sidebar .widget .categories li a:before {
 	content: "\f0da";
 	font-size: 12px;
 	font-family: FontAwesome;
 	margin-right: 20px;
-}
+}*/
 .sidebar .widget .categories li a:hover {
 	text-decoration: none;
 }

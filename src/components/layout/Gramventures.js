@@ -102,7 +102,6 @@ class Gramventures extends Component {
   <div>
     <section className="cp-inner-banner" style={innerBannerStyle}>
       <h1>Explore</h1>
-      <Breadcrumb />
     </section>
 
     
