@@ -26,7 +26,8 @@ constructor(props) {
                      handle: "",
                      by: "",
                      totalVotes: 0
-                    }
+                    },
+                    modalAlreadyVoted: false
                   };
   }  
 
@@ -85,6 +86,7 @@ getImageDetails() {
   if (imgIndex >= max) {
     imgIndex = max;
     this.setState({imgIndex: max});
+    this.setState({modalAlreadyVoted: true})
   }
   console.log("getDetails imgIndex: ", imgIndex);
 
@@ -163,10 +165,34 @@ handleNo(e){
   this.nextImage(); 
 }
 
+handleClose() {
+    window.location = "http://localhost:8080/#/gramventures?status=voting";
+  }
+
     render() {
+      let _this = this;
+      var styleHashtag ={textDecoration: "underline",
+    color: "blue"};
       
     return (
+  
+
   <div>
+
+  <div className= "modal-container" >
+
+  <input id="modal-toggle" type="checkbox" checked={_this.state.modalAlreadyVoted}> </input>
+
+
+
+    <div className="modal-backdrop">
+      <div className="modal-content">
+        <h2>You voted for all the photos!</h2>
+        <label className="modal-close button" for="modal-toggle" onClick={this.handleClose}>OK</label>
+      </div>
+    </div>
+  </div>
+
  
  <section className="cp-single-photo">
     <div className="container-fluid">
