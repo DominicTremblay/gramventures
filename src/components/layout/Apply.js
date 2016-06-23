@@ -15,7 +15,9 @@ class Apply extends Component {
     super(props);
     this.state = {images: [],
       modalChecked: false,
-      modalNopicture: false
+      modalNopicture: false,
+      loadingClass: "show loading-gif",
+      applyButtonClass: "hide btn-view"
     };
   }
 
@@ -34,7 +36,11 @@ class Apply extends Component {
         if (images.length === 0){
           _this.setState({modalNopicture: true});
         } else { 
-        _this.setState({images: images});
+        _this.setState({
+          images: images,
+          loadingClass: "loading-gif",
+          applyButtonClass: "btn-view"
+        });
         }
       }, function(errorMessage){
         alert("errorMessage");
@@ -187,7 +193,8 @@ class Apply extends Component {
           </div>
           <div className="col-md-4">
             <div className="cp-team-info">
-              <button className="btn-view" onClick={this.handleApply.bind(this)}>Apply</button>
+            <img src="images/ajax-loader.gif" alt="loading" className={this.state.loadingClass}/>
+              <button className={this.state.applyButtonClass} onClick={this.handleApply.bind(this)}>Apply</button>
              </div>
             </div>
            <div className="col-md-4">

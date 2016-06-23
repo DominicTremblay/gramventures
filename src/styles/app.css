@@ -161,3 +161,15 @@
 }
 
 .modal-container #modal-toggle:checked ~ .modal-backdrop .modal-content .modal-close:hover { color: #333; }
+
+
+
+.loading-gif {
+  display: none;
+  margin: 0 auto;
+}
+
+
+.loading-gif.show {
+  display: block;
+}
