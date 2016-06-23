@@ -2537,6 +2537,10 @@ ul.checklist li:before {
 	text-decoration:none;
 }
 
+.cp-features-list li.active a h3{
+	color: #c23c48;
+
+}
 .cp-features-list li {
 	color: #6F7D87;
     font-size: 22px;

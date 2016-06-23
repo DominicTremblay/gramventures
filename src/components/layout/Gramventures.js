@@ -10,7 +10,25 @@ class Gramventures extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {gramventures: [], status: window.location.hash.match(/status=(.*)/)[1].split('&')[0]};
+    let status = window.location.hash.match(/status=(.*)/)[1].split('&')[0]
+    let state = {gramventures: [], status: window.location.hash.match(/status=(.*)/)[1].split('&')[0]}   
+    
+    if (status === "open"){
+      state.openclassName = "active"
+      state.votingclassName = "" 
+      state.closedclassName = ""
+    }
+    else if (status === "voting"){
+      state.openclassName = ""
+      state.votingclassName = "active" 
+      state.closedclassName = ""
+    }
+    else if (status === "closed"){
+      state.openclassName = ""
+      state.votingclassName = "" 
+      state.closedclassName = "active"
+    }
+    this.state = state 
     // this.status = window.location.hash.match(/status=(.*)/)[1].split('&')[0];
   }
 
@@ -29,9 +47,15 @@ class Gramventures extends Component {
   }
 
   handleFilterClick(status) {
-   let _this = this;
-   let url = "http://localhost:3000/gramventures?status=" + status;
-   console.log(url);
+    let _this = this;
+    let url = "http://localhost:3000/gramventures?status=" + status;
+    console.log(url);
+    if (status === "open")
+      this.setState({openclassName: "active", votingclassName: "", closedclassName: ""})
+    else if (status === "voting")
+      this.setState({openclassName: "", votingclassName: "active", closedclassName: ""})
+    else if (status === "closed")
+      this.setState({openclassName: "", votingclassName: "", closedclassName: "active"})
    axios.get(url)
       .then(function(response){
         let gramventures = response.data 
@@ -112,13 +136,13 @@ class Gramventures extends Component {
       <div className="row">
               <div className="col-md-12">
                 <ul className="cp-features-list">
-                  <li className="active">              
+                  <li className={this.state.openclassName}>              
                     <Link to ="/gramventures?status=open" onClick={()=>this.handleFilterClick("open")}> <h3>Open</h3></Link>                 
                   </li>
-                  <li>                  
+                  <li className={this.state.votingclassName}>                  
                    <Link to = "/gramventures?status=voting" onClick={()=>this.handleFilterClick("voting")}> <h3>Voting</h3></Link>               
                   </li>
-                  <li>
+                  <li className={this.state.closedclassName}>
                    <Link to ="/gramventures?status=closed" onClick={()=>this.handleFilterClick("closed")}> <h3>Closed</h3></Link>
                   </li>
                 </ul>

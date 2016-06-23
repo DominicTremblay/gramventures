@@ -11,7 +11,6 @@ class ListElement extends Component {
   }
 
   componentDidMount() {
-    console.log("didMount State: ", this.state);
     document.addEventListener('keydown', this._handleEscKey.bind(this));
   }
 
@@ -31,6 +30,7 @@ class ListElement extends Component {
   closeModal(e) {
     e.preventDefault();
     this.setState({ isModalOpen: false });
+    this.setState({ ModalOpen: true });
   }
 
   render() {
@@ -62,6 +62,7 @@ class ListElement extends Component {
     return (
       <div>
       <Modal isOpen={_this.state.isModalOpen} transitionName="modal-anim">
+            <a href='#' onClick={_this.closeModal.bind(_this)}><img src='images/x_close-button.png' /></a>
             <a href='#' onClick={_this.closeModal.bind(_this)}><img src={this.state.image} alt="img" /></a>
       </Modal>
       {listElement}
