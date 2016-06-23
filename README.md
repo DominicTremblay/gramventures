@@ -1,7 +1,7 @@
-<<<<<<< HEAD
+
 # gramventures
 Final project at Lighthouse Labs. 
-=======
+
 # React skeleton
 
 * Webpack
@@ -17,4 +17,4 @@ $> npm install
 $> npm run start
 
 http://localhost:8080
->>>>>>> development
+
