@@ -11,7 +11,6 @@ class ListElement extends Component {
   }
 
   componentDidMount() {
-    console.log("didMount State: ", this.state);
     document.addEventListener('keydown', this._handleEscKey.bind(this));
   }
 
