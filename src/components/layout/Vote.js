@@ -27,7 +27,10 @@ constructor(props) {
                      by: "",
                      totalVotes: 0
                     },
-                    modalAlreadyVoted: false
+                    modalAlreadyVoted: false,
+                    imageYes: 'images/vote-yes.png',
+                    imageNo: 'images/vote-no.png'
+
                   };
   }  
 
@@ -160,6 +163,21 @@ handleYes(e) {
   this.nextImage();  
 }
 
+mouseOver(e) {
+  console.log("target: ", e.target.id)
+  if (e.target.id === 'voteYes')
+    this.setState({imageYes: 'images/vote-yes-hover.png'});
+  else
+    this.setState({imageNo: 'images/vote-no-hover.png'});
+}
+
+mouseOut (e) {
+  if (e.target.id === 'voteYes')
+    this.setState({imageYes: 'images/vote-yes.png'}) 
+  else
+    this.setState({imageNo: 'images/vote-no.png'});
+}
+
 handleNo(e){
   e.preventDefault();
   this.nextImage(); 
@@ -171,8 +189,8 @@ handleClose() {
 
     render() {
       let _this = this;
-      var styleHashtag ={textDecoration: "underline",
-    color: "blue"};
+      let styleHashtag ={textDecoration: "underline", color: "blue"};
+
       
     return (
   
@@ -181,7 +199,7 @@ handleClose() {
 
   <div className= "modal-container" >
 
-  <input id="modal-toggle" type="checkbox" checked={_this.state.modalAlreadyVoted}> </input>
+  <input id="modal-toggle" type="checkbox" checked={_this.state.modalAlreadyVoted}/> 
 
 
 
@@ -200,7 +218,7 @@ handleClose() {
         <div className="col-md-2">
         
           <div className="frame">
-          <a href="#" onClick={this.handleNo.bind(this)}><img className="vote-symbol-no" src="images/vote-no.png" alt="No" /></a>
+          <a href="#" onClick={this.handleNo.bind(this)} onMouseOver={this.mouseOver.bind(this)} onMouseOut={this.mouseOut.bind(this)}><img id="voteNo" src={this.state.imageNo} alt="No" /></a>
           </div>
         </div>
         <div className="col-md-5">
@@ -226,7 +244,7 @@ handleClose() {
         </div>
           <div className="col-md-2">
           <div className="frame">
-          <a href="#" onClick={this.handleYes.bind(this)}><img className="vote-symbol-yes" src="images/vote-yes.png" alt="Yes" /></a>
+          <a href="#" onClick={this.handleYes.bind(this)} onMouseOver={this.mouseOver.bind(this)} onMouseOut={this.mouseOut.bind(this)}><img id="voteYes" src={this.state.imageYes} alt="Yes" /></a>
           </div>
         </div>  
       </div>
