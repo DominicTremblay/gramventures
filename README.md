@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # React skeleton
 
 * Webpack
@@ -13,3 +14,7 @@ $> npm install
 $> npm run start
 
 http://localhost:8080
+=======
+# gramventures
+Final project at Lighthouse Labs. 
+>>>>>>> 384f3e9449b79b1e2b7d73458da7386c4b791d7b
