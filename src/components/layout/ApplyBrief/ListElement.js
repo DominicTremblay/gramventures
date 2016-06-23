@@ -33,7 +33,7 @@ class ListElement extends Component {
   }
 
   render() {
-    let _this = this;
+    let _this = this; 
     var listElement = this.props.submissions.map(function(item){
     let imgSrc = encodeURI(item.image.url);
     return (

@@ -16,7 +16,9 @@ class Modal extends Component{
       transform: 'translate(-50%, -50%)',
       border: '3px solid gray',
       background: 'white',
-      padding: '40px'
+      padding: '40px', 
+      maxWidth: '100%',
+      maxHeight: '100%'
     }
 
     let x_close = 
