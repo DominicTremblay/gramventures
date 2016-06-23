@@ -14,16 +14,30 @@ class Modal extends Component{
       top: '50%',
       left: '50%',
       transform: 'translate(-50%, -50%)',
-      border: '1px solid gray',
-      background: 'transparent'
+      border: '3px solid gray',
+      background: 'white',
+      padding: '40px'
     }
 
-    console.log("Modal:", this.props.isOpen);
+    let x_close = 
+    {
+      position: 'absolute',
+      top: '0px',
+      right: '0px'
+    }
+
+    console.log("Modal props:", this.props.isOpen);
+    console.log("Modal State: ", this.state.modalOpen);
+    
     if(this.props.isOpen){
+      if (this.state.isModalOpen)
+        console.log("Modal State: ", this.state.modalOpen);
+              
       return (
         <ReactCSSTransitionGroup transitionName={this.props.transitionName}>
           <div style={modalDialog}>
-            {this.props.children}
+          <div style={x_close}>{this.props.children[0]}</div>
+            {this.props.children[1]}
           </div>
         </ReactCSSTransitionGroup>
             )
