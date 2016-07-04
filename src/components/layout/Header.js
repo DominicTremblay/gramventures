@@ -20,7 +20,6 @@ class Header extends Component {
     <section className="logo-row"> 
 
       <SideBarMenu />
-
       <LoginSection />
       <div className="container"> <strong className="logo"><a href="/"><img src="images/logo.png" alt="logo" /></a></strong> </div>
 

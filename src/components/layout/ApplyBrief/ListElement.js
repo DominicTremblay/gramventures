@@ -36,6 +36,7 @@ class ListElement extends Component {
     let _this = this; 
     var listElement = this.props.submissions.map(function(item){
     let imgSrc = encodeURI(item.image.url);
+
     return (
        <li>
         <div className="cp-box"> <a href="#" onClick={_this.openModal.bind(_this, imgSrc)}>
